@@ -8,8 +8,11 @@
         body { 
             font-family: Arial, sans-serif; 
             text-align: center; 
-            /* Blue Gradient Background */
-            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); 
+            /* Nayi Image Background */
+            background-image: url('https://img.pikbest.com/origin/09/75/96/84ppIkbEsTfW9.jpg!w700wp'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,32 +21,16 @@
             min-height: 100vh;
         }
         .card { 
-            background: white; 
+            background: rgba(255, 255, 255, 0.9); /* Thora transparent taaki background dikhe */
             padding: 30px; 
             border-radius: 15px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
             max-width: 350px;
             width: 90%;
+            backdrop-filter: blur(5px); /* Glass effect ke liye */
         }
         h1 { color: #333; margin-bottom: 10px; }
-        p { color: #555; line-height: 1.6; }
-
-        /* Skills section styling */
-        .skills-container {
-            margin: 20px 0;
-        }
-        .skill-tag {
-            background: #eef2f3;
-            color: #007bff;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 4px;
-            border: 1px solid #d1d9e6;
-        }
-
+        p { color: #444; line-height: 1.6; font-weight: 500; }
         .btn { 
             background-color: #007bff; 
             color: white; 
@@ -51,25 +38,17 @@
             text-decoration: none; 
             border-radius: 8px; 
             display: inline-block; 
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
             transition: 0.3s;
         }
-        .btn:hover { background-color: #0056b3; }
+        .btn:hover { background-color: #0056b3; transform: scale(1.05); }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Noman Zulfiqar</h1>
         <p><strong>.NET Developer & AI Enthusiast 🚀</strong></p>
-        
-        <div class="skills-container">
-            <span class="skill-tag">C#</span>
-            <span class="skill-tag">.NET Core</span>
-            <span class="skill-tag">SQL Server</span>
-            <span class="skill-tag">AI</span>
-        </div>
-
         <p>I'm working on my portfolio right now!</p>
         <a href="https://github.com/nomanzulfiqar121-ctrl" class="btn">Check out my GitHub</a>
     </div>
