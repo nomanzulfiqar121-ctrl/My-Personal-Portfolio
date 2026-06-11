@@ -25,6 +25,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--main-bg);
             color: var(--text-dark);
+            margin: 0;
+            padding: 0;
         }
 
         /* ── MAIN STRUCTURE WRAPPER ── */
@@ -35,34 +37,34 @@
             align-items: flex-start;
         }
 
-        /* ── SIDEBAR CONFIGURATION (WIDTH SET TO SLIM 180px) ── */
+        /* ── SIDEBAR CONFIGURATION WITH 'NZ' LOGO ── */
         .sidebar {
-            width: 180px; /* Kept slim so there is no extra space inside */
+            width: 260px;
             background-color: var(--sidebar-bg);
             color: #ffffff;
             display: flex;
             flex-direction: column;
-            padding: 25px 12px;
+            padding: 30px 20px;
             flex-shrink: 0;
-            min-height: 100vh;
+            min-height: 440px;
         }
 
         /* Figma Style Short Logo 'NZ' */
         .sidebar-brand-box {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.02));
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.15rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
-            margin-bottom: 30px;
-            margin-left: 8px;
+            margin-bottom: 35px;
+            margin-left: 10px;
         }
 
         .sidebar-menu {
@@ -77,10 +79,10 @@
         .sidebar-menu a {
             color: #94a3b8;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            padding: 10px 12px;
+            padding: 12px 15px;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
@@ -91,31 +93,31 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT LAYER (GAP FIXED HERE) ── */
+        /* ── MAIN CONTENT LAYER (ZERO GAP FOR ATTACHMENT) ── */
         .main-content {
             flex: 1;
-            padding: 0px 20px 40px 16px; /* Left padding strict 16px (1 inch feeling) to bring Hero right next to sidebar */
+            padding: 0px 40px 40px 0px; /* Left padding is 0 so Hero section attaches directly to sidebar */
             background-color: var(--main-bg);
-            overflow-hidden: hidden;
         }
 
-        /* ── HERO SECTION: ATTACHED CLOSELY WITH SIDEBAR ── */
+        /* ── HERO SECTION: ATTACHED DIRECTLY TO SIDEBAR ── */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 30px;
+            gap: 40px;
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
-            padding: 40px 35px;
+            padding: 50px 50px;
             margin-top: 0px;
-            margin-left: 0px; /* No gap layout on the left */
-            margin-bottom: 40px;
+            margin-left: 0px; /* Zero gap connection */
+            margin-bottom: 45px;
             border-top-left-radius: 0px; 
             border-bottom-left-radius: 0px;
             border-top-right-radius: 0px;
             border-bottom-right-radius: 24px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+            min-height: 440px;
         }
 
         .hero-info {
@@ -124,20 +126,20 @@
 
         .hero-info h2 {
             color: #38bdf8;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .hero-info h1 {
-            font-size: 2.4rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             letter-spacing: -0.5px;
         }
 
         .hero-info .subtitle {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             color: #cbd5e1;
             margin-bottom: 12px;
             font-weight: 500;
@@ -147,23 +149,23 @@
             color: #94a3b8;
             line-height: 1.5; 
             margin-bottom: 25px;
-            max-width: 550px;
-            font-size: 0.9rem;
+            max-width: 600px;
+            font-size: 0.95rem;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 12px;
+            gap: 15px;
         }
 
         .btn-primary {
             background-color: var(--primary-blue);
             color: white;
-            padding: 10px 20px;
+            padding: 10px 24px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: inline-block;
             transition: all 0.3s;
         }
@@ -175,11 +177,11 @@
         .btn-secondary {
             border: 1px solid rgba(255,255,255,0.25);
             color: white;
-            padding: 10px 20px;
+            padding: 10px 24px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: inline-block;
             transition: all 0.3s;
         }
@@ -189,8 +191,8 @@
         }
 
         .avatar-frame {
-            width: 190px;
-            height: 230px; 
+            width: 210px;
+            height: 250px; 
             border-radius: 20px;
             border: 2px solid rgba(56, 189, 248, 0.25);
             overflow: hidden;
@@ -203,14 +205,15 @@
             object-fit: cover;
         }
 
-        /* ── INTERNAL SUB-SECTIONS CONFIG ── */
+        /* ── INTERNAL SUB-SECTIONS (BLUE LINES COMPLETELY REMOVED) ── */
         section:not(.hero) {
-            margin-left: 10px; 
-            margin-bottom: 45px;
+            margin-left: 40px; /* Keeps internal components clean and beautifully aligned */
+            margin-bottom: 50px;
+            scroll-margin-top: 40px;
         }
 
         .section-heading {
-            font-size: 1.35rem;
+            font-size: 1.45rem;
             font-weight: 700;
             margin-bottom: 20px;
             color: var(--text-dark);
@@ -218,42 +221,34 @@
             padding-bottom: 6px;
         }
 
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 35px;
-            height: 3px;
-            background-color: var(--primary-blue);
-            border-radius: 2px;
-        }
+        /* Note: Blue line element ::after has been completely wiped out from here */
 
         /* About Component Cards */
         .about-container {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
-            gap: 20px;
+            gap: 24px;
         }
 
         .about-text {
             background: var(--card-bg);
-            padding: 25px; 
+            padding: 30px; 
             border-radius: 14px;
             border: 1px solid var(--border-color);
-            font-size: 0.95rem; 
+            font-size: 1.05rem; 
             color: #334155;
-            line-height: 1.6;
+            display: flex;
+            align-items: center;
         }
 
         .info-card {
             background: var(--card-bg);
-            padding: 25px;
+            padding: 30px;
             border-radius: 14px;
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
         }
 
         .info-details {
@@ -262,7 +257,7 @@
         }
 
         .info-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--text-light);
             text-transform: uppercase;
             font-weight: 700;
@@ -272,46 +267,44 @@
             font-weight: 600;
             color: var(--text-dark);
             margin-top: 2px;
-            font-size: 0.9rem;
         }
 
         /* Skills Pill Engine */
         .skills-grid {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .skill-pill {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 10px 22px;
-            border-radius: 10px;
+            padding: 12px 28px;
+            border-radius: 12px;
             font-weight: 600;
             color: #334155;
-            font-size: 0.9rem;
         }
 
         /* Grid Engine for Certifications */
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .portfolio-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 14px;
-            padding: 22px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 170px;
+            min-height: 180px;
         }
 
         .card-org {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 6px;
@@ -323,7 +316,7 @@
         .org-mlsa { color: #00a4ef; }
 
         .card-title {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: var(--text-dark);
         }
@@ -332,8 +325,8 @@
             color: var(--primary-blue);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.8rem;
-            padding-top: 12px;
+            font-size: 0.85rem;
+            padding-top: 15px;
             display: inline-block;
         }
 
@@ -342,7 +335,7 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 25px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -353,56 +346,56 @@
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
-        /* Mobile & Tablet Specific Layout Fixes */
-        @media (max-width: 768px) {
+        /* Responsive Layout Engine */
+        @media (max-width: 900px) {
             .app-container {
-                display: flex;
-                flex-direction: row; /* Maintains sidebar structure side-by-side */
+                flex-direction: column;
             }
             .sidebar { 
-                width: 75px; /* Collapses beautifully on mobile to save space */
-                padding: 20px 8px;
-                align-items: center;
+                width: 100%; 
+                padding: 20px; 
+                min-height: auto;
             }
             .sidebar-brand-box { 
-                margin-left: 0; 
-                margin-bottom: 25px;
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+                margin: 0 auto 15px auto; 
             }
-            .sidebar-menu a {
-                justify-content: center;
-                padding: 12px 0px;
-                font-size: 0.75rem;
-                text-align: center;
+            .sidebar-menu { 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 8px; 
             }
-            /* Hides names on ultra-small items if needed, or keeps text stacked */
+            .sidebar-menu li { 
+                margin-bottom: 0; 
+            }
             .main-content { 
-                padding: 0px 12px 30px 12px; /* Super snug 1-inch response alignment */
+                padding: 15px; 
             }
             .hero { 
                 flex-direction: column-reverse; 
                 text-align: center; 
-                padding: 25px 20px; 
-                gap: 15px; 
-                border-radius: 0px 0px 20px 20px;
-            }
-            .hero-info h1 {
-                font-size: 1.8rem;
+                padding: 30px 20px; 
+                gap: 20px; 
+                border-radius: 20px; 
+                min-height: auto;
             }
             .hero-buttons { 
                 justify-content: center; 
             }
-            .about-container, .grid-layout, .contact-grid { 
+            .about-container { 
                 grid-template-columns: 1fr; 
             }
-            .avatar-frame {
-                width: 140px;
-                height: 160px;
+            .grid-layout { 
+                grid-template-columns: 1fr; 
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            section:not(.hero) {
+                margin-left: 0px; 
             }
         }
     </style>
@@ -415,11 +408,11 @@
             <div class="sidebar-brand-box">NZ</div>
             <ul class="sidebar-menu">
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">About Me</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifs</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Contact Me</a></li>
             </ul>
         </nav>
 
@@ -432,7 +425,7 @@
                     <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
                     <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn-primary">View My Work</a>
+                        <a href="#projects" class="btn-primary">View My Work →</a>
                         <a href="#contact" class="btn-secondary">Contact Me</a>
                     </div>
                 </div>
@@ -521,11 +514,11 @@
                 <div class="project-card">
                     <div>
                         <div class="card-org org-mlsa">Microsoft Learn Student Ambassador Tool</div>
-                        <h3 class="card-title" style="margin-top: 4px; font-size: 1.1rem;">MLSA Link Converter</h3>
+                        <h3 class="card-title" style="margin-top: 4px; font-size: 1.2rem;">MLSA Link Converter</h3>
                     </div>
-                    <p style="color: var(--text-light); font-size: 0.9rem; line-height: 1.5;">An official automated web utility created to format, manage, and convert custom resource pathways effortlessly for the global community.</p>
+                    <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.5;">An official automated web utility created to format, manage, and convert custom resource pathways effortlessly for the global community.</p>
                     <div style="margin-top: 10px;">
-                        <a href="#" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Launch Live Tool ↗</a>
+                        <a href="#" class="btn-primary" style="padding: 8px 20px; font-size: 0.85rem;">Launch Live Tool ↗</a>
                     </div>
                 </div>
             </section>
@@ -533,22 +526,22 @@
             <section id="contact">
                 <div class="section-heading">Contact Me</div>
                 <div class="contact-grid">
-                    <div class="portfolio-card" style="min-height: 100px; padding: 15px;">
+                    <div class="portfolio-card" style="min-height: 120px;">
                         <div>
                             <div class="info-label">Email</div>
-                            <div class="info-value" style="font-size: 0.85rem; margin-top: 5px;">nomanzulfiqar121@gmail.com</div>
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">nomanzulfiqar121@gmail.com</div>
                         </div>
                     </div>
-                    <div class="portfolio-card" style="min-height: 100px; padding: 15px;">
+                    <div class="portfolio-card" style="min-height: 120px;">
                         <div>
                             <div class="info-label">LinkedIn</div>
-                            <div class="info-value" style="font-size: 0.85rem; margin-top: 5px;">Connect Professionally →</div>
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">Connect Professionally →</div>
                         </div>
                     </div>
-                    <div class="portfolio-card" style="min-height: 100px; padding: 15px;">
+                    <div class="portfolio-card" style="min-height: 120px;">
                         <div>
                             <div class="info-label">GitHub</div>
-                            <div class="info-value" style="font-size: 0.85rem; margin-top: 5px;">View Repositories →</div>
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">View Repositories →</div>
                         </div>
                     </div>
                 </div>
