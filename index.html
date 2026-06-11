@@ -34,10 +34,10 @@
             display: flex;
             max-width: 1500px;
             margin: 0 auto;
-            align-items: flex-start; /* Sidebar aur content top se align rahenge */
+            align-items: flex-start; /* Sidebar aur hero section top se align hain */
         }
 
-        /* ── SIDEBAR CONFIGURATION WITH DESIGN REFERENCE ── */
+        /* ── SIDEBAR CONFIGURATION WITH 'NZ' LOGO ── */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -46,7 +46,7 @@
             flex-direction: column;
             padding: 30px 20px;
             flex-shrink: 0;
-            min-height: 440px; /* Hero section ki height ke barabar balance */
+            min-height: 440px; /* Hero section ki height ke mutabik align */
         }
 
         /* Figma Style Short Logo 'NZ' */
@@ -100,7 +100,7 @@
             background-color: var(--main-bg);
         }
 
-        /* ── HERO SECTION: SEAMLESS ATTACHMENT WITH NO GAPS ── */
+        /* ── HERO SECTION: ATTACHED WITH NO GAPS ── */
         .hero {
             display: flex;
             align-items: center;
@@ -109,7 +109,7 @@
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             padding: 50px 50px;
-            margin-top: 0px; /* Sidebar ke top ke sath barabar chipka hua hai */
+            margin-top: 0px;
             margin-left: 0px; 
             margin-bottom: 45px;
             border-top-left-radius: 0px; 
@@ -117,7 +117,7 @@
             border-top-right-radius: 0px;
             border-bottom-right-radius: 24px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-            min-height: 440px; /* Fixed scale height for grid balancing */
+            min-height: 440px;
         }
 
         .hero-info {
@@ -280,22 +280,21 @@
 
         /* Skills Pill Engine */
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .skill-pill {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 18px;
+            padding: 12px 28px;
             border-radius: 12px;
-            text-align: center;
             font-weight: 600;
             color: #334155;
         }
 
-        /* Certifications Board */
+        /* Grid Engine for Certifications */
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -323,6 +322,7 @@
         .org-ms { color: #f25f22; }
         .org-hp { color: #0096d6; }
         .org-google { color: #ea4335; }
+        .org-mlsa { color: #00a4ef; }
 
         .card-title {
             font-size: 1.05rem;
@@ -336,9 +336,10 @@
             font-weight: 600;
             font-size: 0.85rem;
             padding-top: 15px;
+            display: inline-block;
         }
 
-        /* Projects Section Base */
+        /* Projects Section styling */
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -347,6 +348,14 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            max-width: 800px;
+        }
+
+        /* Contact Section Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
         /* Responsive Layout Engine */
@@ -390,6 +399,9 @@
             }
             .grid-layout { 
                 grid-template-columns: 1fr; 
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
             section:not(.hero) {
                 margin-left: 0px; 
@@ -488,6 +500,58 @@
                             <div class="card-title">AI Beginner Professional Certification</div>
                         </div>
                         <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
+                    </div>
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-google">Google / Accredible</div>
+                            <div class="card-title">Gemini Educator Core Credential</div>
+                        </div>
+                        <a href="#" class="card-link">View Credential ↗</a>
+                    </div>
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-mlsa">Microsoft / MLSA</div>
+                            <div class="card-title">Microsoft Learn Student Ambassador Core Milestones</div>
+                        </div>
+                        <a href="#" class="card-link">Verified Profile Card ↗</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="section-heading">Projects</div>
+                <div class="project-card">
+                    <div>
+                        <div class="card-org org-mlsa">Microsoft Learn Student Ambassador Tool</div>
+                        <h3 class="card-title" style="margin-top: 4px; font-size: 1.2rem;">MLSA Link Converter</h3>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.5;">An official automated web utility created to format, manage, and convert custom resource pathways effortlessly for the global community.</p>
+                    <div style="margin-top: 10px;">
+                        <a href="#" class="btn-primary" style="padding: 8px 20px; font-size: 0.85rem;">Launch Live Tool ↗</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="section-heading">Contact Me</div>
+                <div class="contact-grid">
+                    <div class="portfolio-card" style="min-height: 120px;">
+                        <div>
+                            <div class="info-label">Email</div>
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">nomanzulfiqar121@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" style="min-height: 120px;">
+                        <div>
+                            <div class="info-label">LinkedIn</div>
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">Connect Professionally →</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" style="min-height: 120px;">
+                        <div>
+                            <div class="info-label">GitHub</div>
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">View Repositories →</div>
+                        </div>
                     </div>
                 </div>
             </section>
