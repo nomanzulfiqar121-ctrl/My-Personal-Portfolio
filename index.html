@@ -27,9 +27,11 @@
             color: var(--text-dark);
             display: flex;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
-        /* ── SIDEBAR FIX: CHOTA AUR EXACT CONTACT ME TAK ── */
+        /* ── SIDEBAR FIX: FIXED GAP WITH HERO MERGE ── */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -39,11 +41,11 @@
             left: 0;
             display: flex;
             flex-direction: column;
-            padding: 40px 20px 30px 20px; /* Snug padding around components */
+            padding: 40px 20px 30px 20px;
             z-index: 100;
-            border-bottom-right-radius: 12px; /* Smooth corner where it ends */
-            height: auto; /* Height adapts strictly to contents, removing extra trailing space */
+            height: auto;
             max-height: max-content;
+            border-bottom-right-radius: 0px; /* Merges directly with hero edge */
         }
 
         .sidebar-brand {
@@ -80,15 +82,15 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT SYSTEM ── */
+        /* ── MAIN CONTENT (REMOVED PADDING TO FLUSH HERO WITH SIDEBAR) ── */
         .main-content {
             margin-left: 260px;
             flex: 1;
-            padding: 40px 50px;
+            padding: 0px 40px 40px 0px; /* Left aur Top padding zero ki taaki Hero bilkul touch ho jaye */
             max-width: 1250px;
         }
 
-        /* ── HERO SECTION ── */
+        /* ── HERO SECTION ADJUSTED FOR FLUSH ATTACHMENT ── */
         .hero {
             display: flex;
             align-items: center;
@@ -97,7 +99,11 @@
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             padding: 40px 50px;
-            border-radius: 20px;
+            border-top-left-radius: 0px; /* Corners straightened to blend seamlessly */
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-top: 0px; /* Top white gap removed */
             margin-bottom: 45px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
         }
@@ -187,8 +193,9 @@
             object-fit: cover;
         }
 
-        /* ── SECTIONS GENERAL ── */
-        section {
+        /* ── SECTIONS INDENTED TO KEEP BALANCED DESIGN ── */
+        section:not(.hero) {
+            margin-left: 40px; /* Keeps About Me, Skills etc. beautifully aligned */
             margin-bottom: 50px;
             scroll-margin-top: 40px;
         }
@@ -350,12 +357,11 @@
             gap: 4px;
         }
 
-        /* ── RESPONSIVE BALANCING (MOBILE-FIRST CLOSE MERGE) ── */
+        /* ── RESPONSIVE BALANCING ── */
         @media (max-width: 900px) {
             body { 
                 flex-direction: column; 
             }
-            /* Sidebar adapts dynamically to sit directly over hero without large blank space */
             .sidebar { 
                 width: 100%; 
                 position: relative; 
@@ -375,17 +381,17 @@
             .sidebar-menu li { 
                 margin-bottom: 0; 
             }
-            /* Main content attaches seamlessly directly underneath the sidebar bounds */
             .main-content { 
                 margin-left: 0; 
-                padding: 15px; /* Tight compact layout padding */
+                padding: 15px; 
             }
             .hero { 
                 flex-direction: column-reverse; 
                 text-align: center; 
                 padding: 30px 20px; 
                 gap: 20px; 
-                margin-top: 5px; /* Perfectly merges closely with the above header */
+                margin-top: 5px; 
+                border-radius: 20px; /* Rounded corners restored for responsive mobile view */
             }
             .hero-buttons { 
                 justify-content: center; 
@@ -395,6 +401,9 @@
             }
             .grid-layout { 
                 grid-template-columns: 1fr; 
+            }
+            section:not(.hero) {
+                margin-left: 0px; /* Full alignment on smaller devices */
             }
         }
     </style>
