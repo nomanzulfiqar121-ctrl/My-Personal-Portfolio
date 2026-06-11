@@ -1,238 +1,560 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noman Zulfiqar | Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-    }
-    .hero-bg {
-      background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
-    }
-    .nav-link {
-      transition: all 0.3s;
-    }
-    .nav-link:hover {
-      color: #60a5fa;
-      transform: translateY(-2px);
-    }
-    .skill-card {
-      transition: all 0.4s;
-    }
-    .skill-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noman Zulfiqar | Portfolio</title>
+    <style>
+        :root {
+            --sidebar-bg: #0b1329;
+            --main-bg: #f4f6f9;
+            --primary-blue: #4361ee;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--main-bg);
+            color: var(--text-dark);
+        }
+
+        /* ── MAIN STRUCTURE WRAPPER ── */
+        .app-container {
+            display: flex;
+            max-width: 1500px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+
+        /* ── SIDEBAR CONFIGURATION (WIDTH SET TO SLIM 180px) ── */
+        .sidebar {
+            width: 180px; /* Kept slim so there is no extra space inside */
+            background-color: var(--sidebar-bg);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            padding: 25px 12px;
+            flex-shrink: 0;
+            min-height: 100vh;
+        }
+
+        /* Figma Style Short Logo 'NZ' */
+        .sidebar-brand-box {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+            margin-left: 8px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            width: 100%;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 6px;
+        }
+
+        .sidebar-menu a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
+            font-weight: 600;
+        }
+
+        /* ── MAIN CONTENT LAYER (GAP FIXED HERE) ── */
+        .main-content {
+            flex: 1;
+            padding: 0px 20px 40px 16px; /* Left padding strict 16px (1 inch feeling) to bring Hero right next to sidebar */
+            background-color: var(--main-bg);
+            overflow-hidden: hidden;
+        }
+
+        /* ── HERO SECTION: ATTACHED CLOSELY WITH SIDEBAR ── */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 40px 35px;
+            margin-top: 0px;
+            margin-left: 0px; /* No gap layout on the left */
+            margin-bottom: 40px;
+            border-top-left-radius: 0px; 
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 24px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+        }
+
+        .hero-info {
+            flex: 1;
+        }
+
+        .hero-info h2 {
+            color: #38bdf8;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .hero-info h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-info .subtitle {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .hero-info p {
+            color: #94a3b8;
+            line-height: 1.5; 
+            margin-bottom: 25px;
+            max-width: 550px;
+            font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #314cd4;
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .avatar-container {
+            flex-shrink: 0;
+        }
+
+        .avatar-frame {
+            width: 190px;
+            height: 230px; 
+            border-radius: 20px;
+            border: 2px solid rgba(56, 189, 248, 0.25);
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ── INTERNAL SUB-SECTIONS CONFIG ── */
+        section:not(.hero) {
+            margin-left: 10px; 
+            margin-bottom: 45px;
+        }
+
+        .section-heading {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 35px;
+            height: 3px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        /* About Component Cards */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 20px;
+        }
+
+        .about-text {
+            background: var(--card-bg);
+            padding: 25px; 
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem; 
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .info-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Pill Engine */
+        .skills-grid {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .skill-pill {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.9rem;
+        }
+
+        /* Grid Engine for Certifications */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 170px;
+        }
+
+        .card-org {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        
+        .org-ms { color: #f25f22; }
+        .org-hp { color: #0096d6; }
+        .org-google { color: #ea4335; }
+        .org-mlsa { color: #00a4ef; }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .card-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding-top: 12px;
+            display: inline-block;
+        }
+
+        /* Projects Section styling */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 800px;
+        }
+
+        /* Contact Section Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        /* Mobile & Tablet Specific Layout Fixes */
+        @media (max-width: 768px) {
+            .app-container {
+                display: flex;
+                flex-direction: row; /* Maintains sidebar structure side-by-side */
+            }
+            .sidebar { 
+                width: 75px; /* Collapses beautifully on mobile to save space */
+                padding: 20px 8px;
+                align-items: center;
+            }
+            .sidebar-brand-box { 
+                margin-left: 0; 
+                margin-bottom: 25px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .sidebar-menu a {
+                justify-content: center;
+                padding: 12px 0px;
+                font-size: 0.75rem;
+                text-align: center;
+            }
+            /* Hides names on ultra-small items if needed, or keeps text stacked */
+            .main-content { 
+                padding: 0px 12px 30px 12px; /* Super snug 1-inch response alignment */
+            }
+            .hero { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+                padding: 25px 20px; 
+                gap: 15px; 
+                border-radius: 0px 0px 20px 20px;
+            }
+            .hero-info h1 {
+                font-size: 1.8rem;
+            }
+            .hero-buttons { 
+                justify-content: center; 
+            }
+            .about-container, .grid-layout, .contact-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .avatar-frame {
+                width: 140px;
+                height: 160px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-200">
+<body>
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl">NZ</div>
-        <div>
-          <h1 class="font-bold text-xl">NOMAN ZULFIQAR</h1>
-        </div>
-      </div>
-      
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#home" class="nav-link font-medium">Home</a>
-        <a href="#about" class="nav-link font-medium">About</a>
-        <a href="#skills" class="nav-link font-medium">Skills</a>
-        <a href="#certifications" class="nav-link font-medium">Certifications</a>
-        <a href="#projects" class="nav-link font-medium">Projects</a>
-        <a href="#education" class="nav-link font-medium">Education</a>
-        <a href="#contact" class="nav-link font-medium">Contact</a>
-      </div>
-      
-      <a href="#" class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full text-sm font-medium transition">
-        Download CV
-      </a>
+    <div class="app-container">
+
+        <nav class="sidebar">
+            <div class="sidebar-brand-box">NZ</div>
+            <ul class="sidebar-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            
+            <section id="home" class="hero">
+                <div class="hero-info">
+                    <h2>Hi, I'm</h2>
+                    <h1>Noman Zulfiqar</h1>
+                    <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
+                    <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn-primary">View My Work</a>
+                        <a href="#contact" class="btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+                
+                <div class="avatar-container">
+                    <div class="avatar-frame">
+                        <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar Picture" onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1e293b';">
+                    </div>
+                </div>
+            </section>
+
+            <section id="about">
+                <div class="section-heading">About Me</div>
+                <div class="about-container">
+                    <div class="about-text">
+                        Noman Zulfiqar is an undergraduate student and technology enthusiast with a passion for learning emerging technologies and earning industry-recognized certifications. Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding knowledge through learning for my future in technology.
+                    </div>
+                    <div class="info-card">
+                        <div class="info-item">
+                            <div class="info-details">
+                                <span class="info-label">Name</span>
+                                <span class="info-value">Noman Zulfiqar</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-details">
+                                <span class="info-label">Location</span>
+                                <span class="info-value">Karachi, Pakistan</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-details">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">nomanzulfiqar121@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills">
+                <div class="section-heading">My Skills</div>
+                <div class="skills-grid">
+                    <div class="skill-pill">HTML</div>
+                    <div class="skill-pill">CSS</div>
+                    <div class="skill-pill">JavaScript</div>
+                </div>
+            </section>
+
+            <section id="certifications">
+                <div class="section-heading">Certifications</div>
+                <div class="grid-layout">
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-ms">Microsoft Applied Skills</div>
+                            <div class="card-title">Generate report with AI research agents</div>
+                        </div>
+                        <a href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7" target="_blank" class="card-link">View Credential ↗</a>
+                    </div>
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-hp">HP LIFE</div>
+                            <div class="card-title">AI Beginner Professional Certification</div>
+                        </div>
+                        <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
+                    </div>
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-google">Google / Accredible</div>
+                            <div class="card-title">Gemini Educator Core Credential</div>
+                        </div>
+                        <a href="#" class="card-link">View Credential ↗</a>
+                    </div>
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-mlsa">Microsoft / MLSA</div>
+                            <div class="card-title">Microsoft Learn Student Ambassador Core Milestones</div>
+                        </div>
+                        <a href="#" class="card-link">Verified Profile Card ↗</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="section-heading">Projects</div>
+                <div class="project-card">
+                    <div>
+                        <div class="card-org org-mlsa">Microsoft Learn Student Ambassador Tool</div>
+                        <h3 class="card-title" style="margin-top: 4px; font-size: 1.1rem;">MLSA Link Converter</h3>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 0.9rem; line-height: 1.5;">An official automated web utility created to format, manage, and convert custom resource pathways effortlessly for the global community.</p>
+                    <div style="margin-top: 10px;">
+                        <a href="#" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Launch Live Tool ↗</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="section-heading">Contact Me</div>
+                <div class="contact-grid">
+                    <div class="portfolio-card" style="min-height: 100px; padding: 15px;">
+                        <div>
+                            <div class="info-label">Email</div>
+                            <div class="info-value" style="font-size: 0.85rem; margin-top: 5px;">nomanzulfiqar121@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" style="min-height: 100px; padding: 15px;">
+                        <div>
+                            <div class="info-label">LinkedIn</div>
+                            <div class="info-value" style="font-size: 0.85rem; margin-top: 5px;">Connect Professionally →</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" style="min-height: 100px; padding: 15px;">
+                        <div>
+                            <div class="info-label">GitHub</div>
+                            <div class="info-value" style="font-size: 0.85rem; margin-top: 5px;">View Repositories →</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div class="space-y-8">
-        <p class="text-blue-400 text-lg">Hi, I'm</p>
-        <h1 class="text-6xl md:text-7xl font-bold leading-tight">Noman Zulfiqar</h1>
-        <p class="text-2xl text-slate-400">Technology Enthusiast | Lifelong Learner</p>
-        
-        <p class="text-slate-300 max-w-lg text-lg">
-          I am an undergraduate student with a strong passion for exploring new technologies, learning industry-relevant skills, 
-          and continuously growing through professional courses and hands-on learning.
-        </p>
-
-        <div class="flex flex-wrap gap-4">
-          <a href="#projects" class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-full font-semibold flex items-center gap-2 transition">
-            View My Work <i class="fas fa-arrow-right"></i>
-          </a>
-          <a href="#contact" class="border border-slate-400 hover:border-white px-8 py-4 rounded-full font-semibold transition">
-            Contact Me
-          </a>
-        </div>
-
-        <div class="flex gap-6 text-2xl pt-4">
-          <a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="hover:text-blue-400"><i class="fab fa-github"></i></a>
-          <a href="#" class="hover:text-blue-400"><i class="fas fa-envelope"></i></a>
-        </div>
-      </div>
-
-      <!-- Profile Image -->
-      <div class="flex justify-center">
-        <div class="w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden border-4 border-blue-500 shadow-2xl">
-          <img src="https://via.placeholder.com/600x600/1e2937/60a5fa?text=Noman+Zulfiqar" 
-               alt="Noman Zulfiqar" class="w-full h-full object-cover">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Me -->
-  <section id="about" class="py-20 bg-slate-900">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-12 flex items-center gap-3">
-        <span class="text-blue-500">👤</span> About Me
-      </h2>
-      
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="text-slate-300 leading-relaxed text-lg">
-          I am an undergraduate student and technology enthusiast passionate about exploring emerging technologies 
-          and earning industry-recognized certifications. I enjoy learning new skills, solving problems, and staying 
-          updated with the latest trends in the tech world. I am committed to continuous growth and building a strong 
-          foundation for my future in technology.
-        </div>
-        
-        <div class="grid grid-cols-2 gap-6">
-          <div class="bg-slate-800 p-6 rounded-2xl">
-            <p class="text-blue-400 text-sm">Name</p>
-            <p class="font-semibold">Noman Zulfiqar</p>
-          </div>
-          <div class="bg-slate-800 p-6 rounded-2xl">
-            <p class="text-blue-400 text-sm">Education</p>
-            <p class="font-semibold">Undergraduate</p>
-          </div>
-          <div class="bg-slate-800 p-6 rounded-2xl">
-            <p class="text-blue-400 text-sm">Location</p>
-            <p class="font-semibold">Pakistan</p>
-          </div>
-          <div class="bg-slate-800 p-6 rounded-2xl">
-            <p class="text-blue-400 text-sm">Email</p>
-            <p class="font-semibold">noman.zulfiqar@example.com</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="py-20 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-12 flex items-center gap-3">
-        <span class="text-blue-500">💻</span> My Skills
-      </h2>
-      
-      <div class="grid grid-cols-3 md:grid-cols-6 gap-6">
-        <div class="skill-card bg-slate-800 p-6 rounded-2xl text-center">
-          <div class="text-4xl mb-3">🌐</div>
-          <p class="font-semibold">HTML</p>
-        </div>
-        <div class="skill-card bg-slate-800 p-6 rounded-2xl text-center">
-          <div class="text-4xl mb-3">🎨</div>
-          <p class="font-semibold">CSS</p>
-        </div>
-        <div class="skill-card bg-slate-800 p-6 rounded-2xl text-center">
-          <div class="text-4xl mb-3">🟨</div>
-          <p class="font-semibold">JavaScript</p>
-        </div>
-        <div class="skill-card bg-slate-800 p-6 rounded-2xl text-center">
-          <div class="text-4xl mb-3">🐍</div>
-          <p class="font-semibold">Python</p>
-        </div>
-        <div class="skill-card bg-slate-800 p-6 rounded-2xl text-center">
-          <div class="text-4xl mb-3">📢</div>
-          <p class="font-semibold">Digital Marketing</p>
-        </div>
-        <div class="skill-card bg-slate-800 p-6 rounded-2xl text-center">
-          <div class="text-4xl mb-3">📊</div>
-          <p class="font-semibold">Data Analysis</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certifications -->
-  <section id="certifications" class="py-20 bg-slate-900">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-12">Certifications</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Add your certification cards here similarly -->
-        <div class="bg-slate-800 p-6 rounded-2xl">
-          <h4 class="font-semibold">Fundamentals of Digital Marketing</h4>
-          <p class="text-sm text-slate-400 mt-2">Google Digital Garage</p>
-        </div>
-        <!-- Repeat for other certifications -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="py-20 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-8">Projects</h2>
-      <div class="bg-slate-800/50 border border-dashed border-slate-600 rounded-3xl p-16">
-        <p class="text-2xl text-slate-400">Projects section is currently being updated.<br>New projects will be added soon.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="py-20 bg-slate-900">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-12">Education</h2>
-      <div class="bg-slate-800 rounded-3xl p-8">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div>
-            <span class="px-4 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">In Progress</span>
-            <h3 class="text-2xl font-semibold mt-4">Undergraduate Program</h3>
-            <p class="text-slate-400">University Name</p>
-          </div>
-          <p class="text-slate-400">Expected Graduation: 2026</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-20 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-12">Contact Me</h2>
-      <p class="text-slate-400 mb-8">I'm always open to new opportunities, collaborations, or just a friendly conversation.</p>
-      
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="mailto:noman.zulfiqar@example.com" class="bg-slate-800 hover:bg-slate-700 p-6 rounded-2xl flex items-center gap-4 transition">
-          <i class="fas fa-envelope text-3xl text-blue-400"></i>
-          <div>
-            <p class="font-medium">Email</p>
-            <p class="text-sm text-slate-400">noman.zulfiqar@example.com</p>
-          </div>
-        </a>
-        <!-- Add LinkedIn and GitHub similarly -->
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-black py-6 text-center text-sm text-slate-500">
-    © 2024 Noman Zulfiqar. All rights reserved.
-  </footer>
-
 </body>
 </html>
