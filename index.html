@@ -1,728 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noman Zulfiqar Portfolio</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <title>Noman Zulfiqar | Portfolio</title>
     <style>
-        /* =========================
-           GOOGLE FONT
-        ========================= */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-        /* =========================
-           RESET
-        ========================= */
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            scroll-behavior:smooth;
+        :root {
+            --sidebar-bg: #1e293b;
+            --main-bg: #f8fafc;
+            --primary-blue: #3b82f6;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
         }
 
-        body{
-            font-family:'Poppins',sans-serif;
-            background:#ffffff;
-            color:#111827;
-            overflow-x:hidden;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* =========================
-           SCROLLBAR
-        ========================= */
-        ::-webkit-scrollbar{
-            width:8px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--main-bg);
+            color: var(--text-dark);
+            display: flex;
+            min-height: 100vh;
         }
 
-        ::-webkit-scrollbar-thumb{
-            background:#2563eb;
-            border-radius:10px;
+        /* ── SIDEBAR NAVIGATION ── */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: #ffffff;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+            z-index: 100;
         }
 
-        /* =========================
-           SIDEBAR
-        ========================= */
-        .sidebar{
-            position:fixed;
-            top:0;
-            left:0;
-            width:260px;
-            height:100vh;
-            background:#ffffff;
-            border-right:1px solid #e5e7eb;
-            padding:30px;
-            z-index:1000;
+        .sidebar-menu {
+            list-style: none;
+            margin-top: 30px;
         }
 
-        .logo{
-            display:flex;
-            align-items:center;
-            gap:15px;
-            margin-bottom:50px;
+        .sidebar-menu li {
+            margin-bottom: 15px;
         }
 
-        .logo-box{
-            width:60px;
-            height:60px;
-            border-radius:15px;
-            background:linear-gradient(135deg,#2563eb,#1e3a8a);
-            color:white;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:22px;
-            font-weight:700;
+        .sidebar-menu a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        .logo h2{
-            font-size:18px;
-            line-height:1.4;
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .sidebar nav{
-            display:flex;
-            flex-direction:column;
-            gap:18px;
+        /* ── MAIN CONTENT AREA ── */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 60px 50px;
+            max-width: 1200px;
         }
 
-        .sidebar nav a{
-            text-decoration:none;
-            color:#374151;
-            font-weight:500;
-            transition:.3s;
+        /* ── HERO SECTION ── */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background-color: #0f172a;
+            color: white;
+            padding: 60px 50px;
+            border-radius: 24px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .sidebar nav a:hover{
-            color:#2563eb;
-            transform:translateX(6px);
+        .hero-info {
+            flex: 1;
         }
 
-        .sidebar nav a i{
-            margin-right:10px;
+        .hero-info h2 {
+            color: #38bdf8;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
-        .cv-btn{
-            display:block;
-            margin-top:40px;
-            text-align:center;
-            text-decoration:none;
-            color:white;
-            background:linear-gradient(135deg,#2563eb,#1e3a8a);
-            padding:14px;
-            border-radius:12px;
-            font-weight:600;
+        .hero-info h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
         }
 
-        /* =========================
-           MAIN
-        ========================= */
-        .main-content{
-            margin-left:260px;
+        .hero-info .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
         }
 
-        /* =========================
-           HERO
-        ========================= */
-        .hero{
-            min-height:100vh;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:80px;
-            background:linear-gradient(
-                135deg,
-                #1e3a8a,
-                #2563eb
-            );
-            color:white;
+        .hero-info p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 600px;
         }
 
-        .hero-left{
-            max-width:650px;
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
         }
 
-        .welcome{
-            display:inline-block;
-            background:rgba(255,255,255,.15);
-            padding:10px 18px;
-            border-radius:30px;
-            margin-bottom:25px;
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
         }
 
-        .hero-left h1{
-            font-size:70px;
-            line-height:1.1;
-            margin-bottom:15px;
+        .btn-primary:hover {
+            background-color: #2563eb;
         }
 
-        .hero-left h3{
-            font-size:28px;
-            margin-bottom:20px;
-            min-height: 42px; /* Smooth typing background flow */
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
-        .hero-left p{
-            line-height:1.9;
-            max-width:600px;
-            margin-bottom:30px;
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
         }
 
-        .hero-buttons{
-            display:flex;
-            gap:15px;
-            margin-bottom:30px;
+        /* Temporary Silhouette Avatar */
+        .avatar-frame {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 4px solid rgba(56, 189, 248, 0.2);
+            overflow: hidden;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .primary-btn{
-            background:white;
-            color:#1e3a8a;
-            padding:14px 25px;
-            text-decoration:none;
-            border-radius:12px;
-            font-weight:600;
+        .avatar-svg {
+            width: 140px;
+            height: 140px;
+            fill: #64748b;
         }
 
-        .secondary-btn{
-            border:1px solid rgba(255,255,255,.4);
-            color:white;
-            padding:14px 25px;
-            text-decoration:none;
-            border-radius:12px;
+        /* ── SECTIONS GENERAL ── */
+        section {
+            margin-bottom: 60px;
+            scroll-margin-top: 40px;
         }
 
-        .social-links{
-            display:flex;
-            gap:15px;
+        .section-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .social-links a{
-            width:50px;
-            height:50px;
-            border-radius:50%;
-            background:rgba(255,255,255,.15);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:white;
-            text-decoration:none;
-            font-size:18px;
+        /* Info Grid (About Me) */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
         }
 
-        .profile-frame{
-            width:420px;
-            height:420px;
-            padding:8px;
-            border-radius:30px;
-            background:white;
+        .about-text {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            line-height: 1.7;
+            color: #475569;
         }
 
-        .profile-frame img{
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            border-radius:24px;
+        .info-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
-        /* =========================
-           SECTION GENERAL
-        ========================= */
-        .section{
-            padding:90px 80px;
-            background:white;
+        .info-item {
+            display: flex;
+            flex-direction: column;
         }
 
-        .section h2{
-            font-size:42px;
-            margin-bottom:40px;
-            position:relative;
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
-        .section h2::after{
-            content:'';
-            position:absolute;
-            left:0;
-            bottom:-10px;
-            width:90px;
-            height:4px;
-            background:#2563eb;
-            border-radius:10px;
+        .info-value {
+            font-weight: 600;
+            color: var(--text-dark);
         }
 
-        /* =========================
-           ABOUT
-        ========================= */
-        .about-card{
-            background:#f8fafc;
-            padding:35px;
-            border-radius:20px;
-            box-shadow:0 10px 25px rgba(0,0,0,.06);
+        /* Skills Pill Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
         }
 
-        .about-card p{
-            line-height:2;
-            color:#4b5563;
+        .skill-pill {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.3s;
         }
 
-        /* =========================
-           SKILLS
-        ========================= */
-        .skills-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-            gap:20px;
+        .skill-pill:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-blue);
         }
 
-        .skill-card{
-            background:white;
-            border:1px solid #e5e7eb;
-            padding:35px;
-            text-align:center;
-            border-radius:18px;
-            font-weight:600;
-            box-shadow:0 10px 25px rgba(0,0,0,.05);
+        /* Certifications Layout */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
-        /* =========================
-           CERTIFICATES
-        ========================= */
-        .cert-grid{
-            display:flex;
-            flex-wrap:wrap;
-            gap:25px;
+        .portfolio-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 220px;
+            transition: all 0.3s ease;
         }
 
-        .cert-card{
-            flex:1;
-            min-width:280px;
-            background:white;
-            border:1px solid #e5e7eb;
-            padding:30px;
-            border-radius:20px;
-            box-shadow:0 10px 25px rgba(0,0,0,.05);
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+            border-color: #cbd5e1;
         }
 
-        .cert-card h3{
-            margin-bottom:12px;
+        .card-org {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .org-ms { color: #f25f22; }
+        .org-hp { color: #0096d6; }
+        .org-google { color: #4285f4; }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-top: 8px;
+            color: var(--text-dark);
         }
 
-        .cert-card p{
-            margin-bottom:20px;
-            color:#6b7280;
+        .card-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
         }
 
-        .cert-card a{
-            text-decoration:none;
-            background:#2563eb;
-            color:white;
-            padding:12px 18px;
-            border-radius:10px;
-            display:inline-block;
+        .card-link:hover {
+            text-decoration: underline;
         }
 
-        /* =========================
-           PROJECT
-        ========================= */
-        .project-card{
-            background:white;
-            border:1px solid #e5e7eb;
-            padding:35px;
-            border-radius:20px;
-            box-shadow:0 10px 25px rgba(0,0,0,.05);
+        /* Project Layout Box */
+        .project-box {
+            background: #fef08a;
+            border: 1px dashed #ca8a04;
+            padding: 30px;
+            border-radius: 16px;
+            color: #854d0e;
         }
 
-        .project-card h3{
-            margin-bottom:15px;
+        /* Contact Row Elements */
+        .contact-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .project-card p{
-            margin-bottom:20px;
-            color:#6b7280;
+        .contact-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            transition: background 0.3s;
         }
 
-        .project-card a{
-            text-decoration:none;
-            background:#2563eb;
-            color:white;
-            padding:12px 18px;
-            border-radius:10px;
+        .contact-item:hover {
+            background: #f1f5f9;
         }
 
-        /* =========================
-           EDUCATION
-        ========================= */
-        .education-card{
-            background:white;
-            border:1px solid #e5e7eb;
-            padding:35px;
-            border-radius:20px;
-            box-shadow:0 10px 25px rgba(0,0,0,.05);
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-        .contact-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-        }
-
-        .contact-card{
-            background:white;
-            border:1px solid #e5e7eb;
-            padding:30px;
-            border-radius:20px;
-            box-shadow:0 10px 25px rgba(0,0,0,.05);
-        }
-
-        .contact-card h3{
-            margin-bottom:15px;
-        }
-
-        .contact-card a{
-            text-decoration:none;
-            color:#2563eb;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-        footer{
-            text-align:center;
-            padding:30px;
-            border-top:1px solid #e5e7eb;
-            color:#6b7280;
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-        @media(max-width:1100px){
-            .hero{
-                flex-direction:column-reverse;
-                text-align:center;
-                gap:50px;
-            }
-
-            .hero-left h1{
-                font-size:55px;
-            }
-        }
-
-        @media(max-width:900px){
-            .sidebar{
-                display:none;
-            }
-
-            .main-content{
-                margin-left:0;
-            }
-
-            .hero{
-                padding:50px 30px;
-            }
-
-            .section{
-                padding:70px 30px;
-            }
-
-            .profile-frame{
-                width:300px;
-                height:300px;
-            }
-        }
-
-        @media(max-width:600px){
-            .hero-left h1{
-                font-size:40px;
-            }
-
-            .hero-buttons{
-                flex-direction:column;
-            }
-
-            .section h2{
-                font-size:32px;
-            }
-        }
-
-        /* =========================
-           JS SUPPORT CLASSES (NEW ADDITIONS)
-        ========================= */
-        .active{
-            color:#2563eb !important;
-            font-weight:600;
-        }
-
-        .hidden{
-            opacity:0;
-            transform:translateY(40px);
-            transition:.8s ease;
-        }
-
-        .show{
-            opacity:1;
-            transform:translateY(0);
-        }
-
-        #scrollTopButton{
-            position:fixed;
-            right:25px;
-            bottom:25px;
-            width:55px;
-            height:55px;
-            border:none;
-            border-radius:50%;
-            background:#2563eb;
-            color:white;
-            font-size:18px;
-            cursor:pointer;
-            opacity:0;
-            visibility:hidden;
-            transition:.3s;
-            z-index:999;
-            box-shadow:0 10px 25px rgba(37,99,235,.3);
-        }
-
-        .profile-frame{
-            transition:.3s ease;
-        }
-
-        .primary-btn,
-        .secondary-btn,
-        .cv-btn{
-            transition:.3s ease;
+        /* ── RESPONSIVE DESIGN ── */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; position: relative; height: auto; padding: 20px; }
+            .sidebar-menu { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+            .sidebar-menu li { margin-bottom: 0; }
+            .main-content { margin-left: 0; padding: 30px 20px; }
+            .hero { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .hero-buttons { justify-content: center; }
+            .about-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-
 <body>
 
-    <aside class="sidebar">
-        <div class="logo">
-            <div class="logo-box">NZ</div>
-            <h2>Noman<br>Zulfiqar</h2>
-        </div>
-
-        <nav>
-            <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="#about"><i class="fa-solid fa-user"></i> About</a>
-            <a href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
-            <a href="#certifications"><i class="fa-solid fa-award"></i> Certifications</a>
-            <a href="#projects"><i class="fa-solid fa-folder"></i> Projects</a>
-            <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
-            <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
-        </nav>
-
-        <a href="Noman-Zulfiqar-CV.pdf" download class="cv-btn">Download CV</a>
-    </aside>
+    <nav class="sidebar">
+        <div style="font-size: 1.4rem; font-weight: 700; color: white;">NZ</div>
+        <ul class="sidebar-menu">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+    </nav>
 
     <main class="main-content">
-
-        <section class="hero" id="home">
-            <div class="hero-left">
-                <span class="welcome">Welcome To My Portfolio</span>
-                <h1>Noman Zulfiqar</h1>
-                <h3>Technology Enthusiast</h3>
-                <p>
-                    Passionate about exploring emerging technologies,
-                    earning industry-recognized certifications,
-                    and continuously developing valuable digital skills
-                    through professional learning and hands-on projects.
-                </p>
-
+        
+        <section id="home" class="hero">
+            <div class="hero-info">
+                <h2>Hi, I'm</h2>
+                <h1>NOMAN ZULFIQAR</h1>
+                <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
+                <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="primary-btn">View Projects</a>
-                    <a href="#contact" class="secondary-btn">Contact Me</a>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/nomanzulfiqar121-ctrl" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:nomanzulfiqar121@gmail.com">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
+                    <a href="#projects" class="btn-primary">View My Work →</a>
+                    <a href="#contact" class="btn-secondary">Contact Me</a>
                 </div>
             </div>
+            <div class="avatar-frame">
+                <svg class="avatar-svg" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </div>
+        </section>
 
-            <div class="hero-right">
-                <div class="profile-frame">
-                    <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar">
+        <section id="about">
+            <div class="section-heading">👤 About Me</div>
+            <div class="about-container">
+                <div class="about-text">
+                    Noman Zulfiqar is an undergraduate student and technology enthusiast with a passion for learning emerging technologies and earning industry-recognized certifications. Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding knowledge through learning for my future in technology.
+                </div>
+                <div class="info-card">
+                    <div class="info-item">
+                        <span class="info-label">Name</span>
+                        <span class="info-value">Noman Zulfiqar</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">Karachi, Pakistan</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">nomanzulfiqar121@gmail.com</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <div class="about-card">
-                <p>
-                    I am an undergraduate student and technology enthusiast
-                    passionate about learning emerging technologies,
-                    earning industry-recognized certifications,
-                    and continuously improving my technical skills.
-                </p>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <h2>Skills</h2>
+        <section id="skills">
+            <div class="section-heading">💻 My Skills</div>
             <div class="skills-grid">
-                <div class="skill-card">HTML</div>
-                <div class="skill-card">CSS</div>
-                <div class="skill-card">JavaScript</div>
+                <div class="skill-pill">HTML</div>
+                <div class="skill-pill">CSS</div>
+                <div class="skill-pill">JavaScript</div>
             </div>
         </section>
 
-        <section id="certifications" class="section">
-            <h2>Certifications</h2>
+        <section id="certifications">
+            <div class="section-heading">📜 Certifications</div>
             <div class="cert-grid">
-                <div class="cert-card">
-                    <h3>Microsoft Applied Skills</h3>
-                    <p>Generate Reports With AI Research Agents</p>
-                    <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7">
-                        View Credential
-                    </a>
+                
+                <div class="portfolio-card">
+                    <div>
+                        <div class="card-org org-ms">Microsoft Applied Skills</div>
+                        <div class="card-title">Generate report with AI research agents</div>
+                    </div>
+                    <a href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7" target="_blank" class="card-link">View Credential ↗</a>
                 </div>
 
-                <div class="cert-card">
-                    <h3>HP LIFE</h3>
-                    <p>AI Beginner</p>
-                    <a target="_blank" href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c">
-                        View Credential
-                    </a>
+                <div class="portfolio-card">
+                    <div>
+                        <div class="card-org org-hp">HP LIFE</div>
+                        <div class="card-title">AI Beginner</div>
+                    </div>
+                    <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
                 </div>
 
-                <div class="cert-card">
-                    <h3>Gemini Educator</h3>
-                    <p>Google</p>
-                    <a target="_blank" href="https://edu.google.accredible.com/1dfd9796-d8bd-414f-808a-f48f3376682c#acc.yp8kj2iw">
-                        View Credential
-                    </a>
+                <div class="portfolio-card">
+                    <div>
+                        <div class="card-org org-google">Google / Accredible</div>
+                        <div class="card-title">Gemini Educator</div>
+                    </div>
+                    <a href="https://edu.google.accredible.com/1dfd9796-d8bd-414f-808a-f48f3376682c#acc.yp8kj2iw" target="_blank" class="card-link">View Credential ↗</a>
                 </div>
+
             </div>
         </section>
 
-        <section id="projects" class="section">
-            <h2>Project</h2>
-            <div class="project-card">
-                <h3>Microsoft Learn Student Ambassador Link Converter</h3>
-                <p>A web application designed to simplify Microsoft Learn Student Ambassador links.</p>
-                <a href="https://nomanzulfiqar121-ctrl.github.io/mlsa-link-converter/" target="_blank">
-                    Live Demo
+        <section id="projects">
+            <div class="section-heading">📁 Projects</div>
+            <div class="portfolio-card" style="height: auto; width: 100%; gap: 15px;">
+                <div>
+                    <div class="card-org org-ms">Microsoft Learn Student Ambassador Tool</div>
+                    <div class="card-title" style="font-size: 1.4rem;">MLSA Link Converter</div>
+                    <p style="color: var(--text-light); margin-top: 10px; line-height: 1.5;">An official automated web utility created to format, manage, and convert custom resource pathways effortlessly.</p>
+                </div>
+                <a href="https://nomanzulfiqar121-ctrl.github.io/mlsa-link-converter/" target="_blank" class="btn-primary" style="display: inline-block; align-self: flex-start; margin-top: 10px;">Launch Live Tool ↗</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-heading">✉️ Contact Me</div>
+            <div class="contact-row">
+                <a href="mailto:nomanzulfiqar121@gmail.com" class="contact-item">
+                    <span style="color: var(--primary-blue);">Email</span>
+                    <span>nomanzulfiqar121@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="contact-item">
+                    <span style="color: #0077b5;">LinkedIn</span>
+                    <span>Connect Professionally</span>
+                </a>
+                <a href="https://github.com/nomanzulfiqar121-ctrl" target="_blank" class="contact-item">
+                    <span style="color: #24292e;">GitHub</span>
+                    <span>View Repositories</span>
                 </a>
             </div>
         </section>
 
-        <section id="education" class="section">
-            <h2>Education</h2>
-            <div class="education-card">
-                Undergraduate Student
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3>Email</h3>
-                    <p>nomanzulfiqar121@gmail.com</p>
-                </div>
-
-                <div class="contact-card">
-                    <h3>LinkedIn</h3>
-                    <a target="_blank" href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4">
-                        Visit Profile
-                    </a>
-                </div>
-
-                <div class="contact-card">
-                    <h3>GitHub</h3>
-                    <a target="_blank" href="https://github.com/nomanzulfiqar121-ctrl">
-                        Visit Profile
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            © 2026 Noman Zulfiqar. All Rights Reserved.
-        </footer>
-
     </main>
 
     <script>
-        /* =========================
-           SMOOTH ACTIVE NAVIGATION
-        ========================= */
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll(".sidebar nav a");
+        // Simple script to track scroll and update active class in sidebar menu
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.sidebar-menu a');
 
-        window.addEventListener("scroll", () => {
-            let current = "";
+        window.addEventListener('scroll', () => {
+            let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 200;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute("id");
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 60)) {
+                    current = section.getAttribute('id');
                 }
             });
 
             navLinks.forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === "#" + current) {
-                    link.classList.add("active");
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
                 }
             });
         });
-
-        /* =========================
-           REVEAL ANIMATION
-        ========================= */
-        const revealItems = document.querySelectorAll(
-            ".section, .skill-card, .cert-card, .project-card, .contact-card, .education-card"
-        );
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    }
-                });
-            },
-            { threshold: 0.15 }
-        );
-
-        revealItems.forEach(item => {
-            item.classList.add("hidden");
-            observer.observe(item);
-        });
-
-        /* =========================
-           TYPING EFFECT
-        ========================= */
-        const typingText = document.querySelector(".hero-left h3");
-        const words = [
-            "Technology Enthusiast",
-            "Frontend Learner",
-            "Certification Explorer",
-            "Lifelong Learner"
-        ];
-
-        let wordIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
-
-        function typeEffect() {
-            const currentWord = words[wordIndex];
-
-            if (!deleting) {
-                typingText.textContent = currentWord.substring(0, charIndex + 1);
-        
+    </script>
+</body>
+</html>
