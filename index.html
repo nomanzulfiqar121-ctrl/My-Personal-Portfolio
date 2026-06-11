@@ -1,8 +1,6 @@
-
-            
-                        
-                <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,9 +26,9 @@
 
         body{
             font-family:'Poppins',sans-serif;
-            background:#081225;
-            color:#ffffff;
-            overflow-x: hidden;
+            background:#ffffff;
+            color:#111827;
+            overflow-x:hidden;
         }
 
         /* =========================
@@ -40,13 +38,9 @@
             width:8px;
         }
 
-        ::-webkit-scrollbar-track{
-            background:#081225;
-        }
-
         ::-webkit-scrollbar-thumb{
-            background:#7c3aed;
-            border-radius:20px;
+            background:#2563eb;
+            border-radius:10px;
         }
 
         /* =========================
@@ -54,13 +48,13 @@
         ========================= */
         .sidebar{
             position:fixed;
-            left:0;
             top:0;
+            left:0;
             width:260px;
             height:100vh;
-            background:#09162e;
-            border-right:1px solid rgba(255,255,255,0.08);
-            padding:30px 20px;
+            background:#ffffff;
+            border-right:1px solid #e5e7eb;
+            padding:30px;
             z-index:1000;
         }
 
@@ -75,7 +69,8 @@
             width:60px;
             height:60px;
             border-radius:15px;
-            background:linear-gradient(135deg,#7c3aed,#2563eb);
+            background:linear-gradient(135deg,#2563eb,#1e3a8a);
+            color:white;
             display:flex;
             align-items:center;
             justify-content:center;
@@ -83,104 +78,97 @@
             font-weight:700;
         }
 
-        .logo h3{
-            font-size:16px;
+        .logo h2{
+            font-size:18px;
             line-height:1.4;
         }
 
-        .sidebar ul{
-            list-style:none;
+        .sidebar nav{
+            display:flex;
+            flex-direction:column;
+            gap:18px;
         }
 
-        .sidebar ul li{
-            margin:18px 0;
-        }
-
-        .sidebar ul li a{
+        .sidebar nav a{
             text-decoration:none;
-            color:#cbd5e1;
-            font-size:15px;
+            color:#374151;
+            font-weight:500;
             transition:.3s;
-            display:block;
         }
 
-        .sidebar ul li a:hover{
-            color:#ffffff;
+        .sidebar nav a:hover{
+            color:#2563eb;
             transform:translateX(6px);
         }
 
-        .sidebar ul li a i{
+        .sidebar nav a i{
             margin-right:10px;
         }
 
         .cv-btn{
             display:block;
+            margin-top:40px;
             text-align:center;
-            margin-top:35px;
             text-decoration:none;
             color:white;
-            background:linear-gradient(135deg,#7c3aed,#2563eb);
+            background:linear-gradient(135deg,#2563eb,#1e3a8a);
             padding:14px;
             border-radius:12px;
             font-weight:600;
-            transition:.3s;
-        }
-
-        .cv-btn:hover{
-            transform:translateY(-3px);
         }
 
         /* =========================
-           MAIN CONTENT
+           MAIN
         ========================= */
         .main-content{
             margin-left:260px;
         }
 
         /* =========================
-           HERO SECTION
+           HERO
         ========================= */
         .hero{
             min-height:100vh;
             display:flex;
-            align-items:center;
             justify-content:space-between;
+            align-items:center;
             padding:80px;
-            background:
-            radial-gradient(circle at top right,
-            rgba(124,58,237,.4),
-            transparent 30%),
-            #081225;
+            background:linear-gradient(
+                135deg,
+                #1e3a8a,
+                #2563eb
+            );
+            color:white;
         }
 
         .hero-left{
             max-width:650px;
         }
 
-        .hero-left h4{
-            color:#a5b4fc;
-            font-size:22px;
-            margin-bottom:10px;
+        .welcome{
+            display:inline-block;
+            background:rgba(255,255,255,.15);
+            padding:10px 18px;
+            border-radius:30px;
+            margin-bottom:25px;
         }
 
         .hero-left h1{
-            font-size:68px;
+            font-size:70px;
             line-height:1.1;
             margin-bottom:15px;
         }
 
         .hero-left h3{
-            font-size:24px;
-            color:#cbd5e1;
-            margin-bottom:25px;
-            min-height: 36px;
+            font-size:28px;
+            margin-bottom:20px;
+            min-height: 42px; /* Smooth typing background flow */
         }
 
         .hero-left p{
-            color:#94a3b8;
             line-height:1.9;
+            max-width:600px;
             margin-bottom:30px;
-            font-size:16px;
         }
 
         .hero-buttons{
@@ -189,59 +177,54 @@
             margin-bottom:30px;
         }
 
-        .btn-primary{
-            background:linear-gradient(135deg,#7c3aed,#2563eb);
-            color:white;
+        .primary-btn{
+            background:white;
+            color:#1e3a8a;
+            padding:14px 25px;
             text-decoration:none;
-            padding:14px 24px;
             border-radius:12px;
             font-weight:600;
         }
 
-        .btn-secondary{
-            border:1px solid rgba(255,255,255,.2);
+        .secondary-btn{
+            border:1px solid rgba(255,255,255,.4);
             color:white;
+            padding:14px 25px;
             text-decoration:none;
-            padding:14px 24px;
             border-radius:12px;
         }
 
-        .social-icons{
+        .social-links{
             display:flex;
             gap:15px;
         }
 
-        .social-icons a{
+        .social-links a{
             width:50px;
             height:50px;
             border-radius:50%;
-            background:#111f3d;
+            background:rgba(255,255,255,.15);
             display:flex;
             align-items:center;
             justify-content:center;
             color:white;
             text-decoration:none;
-            transition:.3s;
+            font-size:18px;
         }
 
-        .social-icons a:hover{
-            transform:translateY(-5px);
-        }
-
-        .image-frame{
+        .profile-frame{
             width:420px;
             height:420px;
+            padding:8px;
             border-radius:30px;
-            background:linear-gradient(135deg,#7c3aed,#2563eb);
-            padding:6px;
-            box-shadow:0 0 50px rgba(124,58,237,.45);
+            background:white;
         }
 
-        .image-frame img{
+        .profile-frame img{
             width:100%;
             height:100%;
             object-fit:cover;
-            border-radius:26px;
+            border-radius:24px;
         }
 
         /* =========================
@@ -249,6 +232,7 @@
         ========================= */
         .section{
             padding:90px 80px;
+            background:white;
         }
 
         .section h2{
@@ -264,43 +248,23 @@
             bottom:-10px;
             width:90px;
             height:4px;
+            background:#2563eb;
             border-radius:10px;
-            background:linear-gradient(135deg,#7c3aed,#2563eb);
         }
 
         /* =========================
            ABOUT
         ========================= */
-        .about-grid{
-            display:grid;
-            grid-template-columns:2fr 1fr;
-            gap:30px;
-        }
-
-        .about-text,
         .about-card{
-            background:#111c36;
-            padding:30px;
+            background:#f8fafc;
+            padding:35px;
             border-radius:20px;
-        }
-
-        .about-text p{
-            color:#cbd5e1;
-            line-height:1.9;
-            margin-bottom:15px;
-        }
-
-        .about-card div{
-            margin-bottom:20px;
-        }
-
-        .about-card strong{
-            color:#ffffff;
+            box-shadow:0 10px 25px rgba(0,0,0,.06);
         }
 
         .about-card p{
-            color:#94a3b8;
-            margin-top:5px;
+            line-height:2;
+            color:#4b5563;
         }
 
         /* =========================
@@ -313,37 +277,32 @@
         }
 
         .skill-card{
-            background:#111c36;
+            background:white;
+            border:1px solid #e5e7eb;
             padding:35px;
-            border-radius:18px;
             text-align:center;
-            font-size:20px;
+            border-radius:18px;
             font-weight:600;
-            transition:.3s;
-        }
-
-        .skill-card:hover{
-            transform:translateY(-8px);
+            box-shadow:0 10px 25px rgba(0,0,0,.05);
         }
 
         /* =========================
-           CERTIFICATIONS
+           CERTIFICATES
         ========================= */
         .cert-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            display:flex;
+            flex-wrap:wrap;
             gap:25px;
         }
 
         .cert-card{
-            background:#111c36;
+            flex:1;
+            min-width:280px;
+            background:white;
+            border:1px solid #e5e7eb;
             padding:30px;
             border-radius:20px;
-            transition:.3s;
-        }
-
-        .cert-card:hover{
-            transform:translateY(-8px);
+            box-shadow:0 10px 25px rgba(0,0,0,.05);
         }
 
         .cert-card h3{
@@ -351,26 +310,28 @@
         }
 
         .cert-card p{
-            color:#94a3b8;
             margin-bottom:20px;
+            color:#6b7280;
         }
 
         .cert-card a{
             text-decoration:none;
+            background:#2563eb;
             color:white;
-            background:linear-gradient(135deg,#7c3aed,#2563eb);
             padding:12px 18px;
             border-radius:10px;
             display:inline-block;
         }
 
         /* =========================
-           PROJECTS
+           PROJECT
         ========================= */
         .project-card{
-            background:#111c36;
+            background:white;
+            border:1px solid #e5e7eb;
             padding:35px;
             border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,.05);
         }
 
         .project-card h3{
@@ -378,15 +339,14 @@
         }
 
         .project-card p{
-            color:#94a3b8;
-            line-height:1.8;
             margin-bottom:20px;
+            color:#6b7280;
         }
 
         .project-card a{
             text-decoration:none;
+            background:#2563eb;
             color:white;
-            background:linear-gradient(135deg,#7c3aed,#2563eb);
             padding:12px 18px;
             border-radius:10px;
         }
@@ -395,9 +355,11 @@
            EDUCATION
         ========================= */
         .education-card{
-            background:#111c36;
+            background:white;
+            border:1px solid #e5e7eb;
             padding:35px;
             border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,.05);
         }
 
         /* =========================
@@ -410,19 +372,20 @@
         }
 
         .contact-card{
-            background:#111c36;
+            background:white;
+            border:1px solid #e5e7eb;
             padding:30px;
             border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,.05);
         }
 
         .contact-card h3{
             margin-bottom:15px;
         }
 
-        .contact-card p,
         .contact-card a{
-            color:#94a3b8;
             text-decoration:none;
+            color:#2563eb;
         }
 
         /* =========================
@@ -431,8 +394,8 @@
         footer{
             text-align:center;
             padding:30px;
-            border-top:1px solid rgba(255,255,255,.08);
-            color:#94a3b8;
+            border-top:1px solid #e5e7eb;
+            color:#6b7280;
         }
 
         /* =========================
@@ -445,12 +408,8 @@
                 gap:50px;
             }
 
-            .hero-left{
-                max-width:100%;
-            }
-
-            .about-grid{
-                grid-template-columns:1fr;
+            .hero-left h1{
+                font-size:55px;
             }
         }
 
@@ -464,18 +423,14 @@
             }
 
             .hero{
-                padding:40px;
+                padding:50px 30px;
             }
 
             .section{
-                padding:70px 40px;
+                padding:70px 30px;
             }
 
-            .hero-left h1{
-                font-size:50px;
-            }
-
-            .image-frame{
+            .profile-frame{
                 width:300px;
                 height:300px;
             }
@@ -486,20 +441,20 @@
                 font-size:40px;
             }
 
-            .section h2{
-                font-size:32px;
-            }
-
             .hero-buttons{
                 flex-direction:column;
+            }
+
+            .section h2{
+                font-size:32px;
             }
         }
 
         /* =========================
-           IZAFI / ANIMATION CSS (NEW)
+           JS SUPPORT CLASSES (NEW ADDITIONS)
         ========================= */
         .active{
-            color:#ffffff !important;
+            color:#2563eb !important;
             font-weight:600;
         }
 
@@ -514,7 +469,7 @@
             transform:translateY(0);
         }
 
-        #scrollTopBtn{
+        #scrollTopButton{
             position:fixed;
             right:25px;
             bottom:25px;
@@ -522,261 +477,252 @@
             height:55px;
             border:none;
             border-radius:50%;
-            cursor:pointer;
-            font-size:22px;
+            background:#2563eb;
             color:white;
-            background:linear-gradient(135deg,#7c3aed,#2563eb);
-            box-shadow:0 0 20px rgba(124,58,237,.4);
-            display:none;
-            z-index:1000;
-            transition: .3s;
+            font-size:18px;
+            cursor:pointer;
+            opacity:0;
+            visibility:hidden;
+            transition:.3s;
+            z-index:999;
+            box-shadow:0 10px 25px rgba(37,99,235,.3);
         }
 
-        #scrollTopBtn:hover{
-            transform: translateY(-5px);
+        .profile-frame{
+            transition:.3s ease;
+        }
+
+        .primary-btn,
+        .secondary-btn,
+        .cv-btn{
+            transition:.3s ease;
         }
     </style>
 </head>
 
 <body>
 
-<div class="sidebar">
-    <div class="logo">
-        <div class="logo-box">NZ</div>
-        <h3>NOMAN<br>ZULFIQAR</h3>
-    </div>
-
-    <ul>
-        <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
-        <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
-        <li><a href="#certifications"><i class="fa-solid fa-award"></i> Certifications</a></li>
-        <li><a href="#projects"><i class="fa-solid fa-folder"></i> Projects</a></li>
-        <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
-        <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-    </ul>
-
-    <a href="assets/Noman-Zulfiqar-CV.pdf" class="cv-btn" download>
-        Download CV
-    </a>
-</div>
-
-<div class="main-content">
-
-<section id="home" class="hero">
-    <div class="hero-left">
-        <h4>Hi, I'm</h4>
-        <h1>Noman Zulfiqar</h1>
-        <h3>Technology Enthusiast | Lifelong Learner</h3>
-        <p>
-            Passionate about exploring emerging technologies,
-            earning industry-recognized certifications,
-            and continuously developing valuable digital skills
-            through professional learning and hands-on projects.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">View My Work</a>
-            <a href="#contact" class="btn-secondary">Contact Me</a>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-box">NZ</div>
+            <h2>Noman<br>Zulfiqar</h2>
         </div>
 
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/nomanzulfiqar121-ctrl" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:nomanzulfiqar121@gmail.com">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-        </div>
-    </div>
+        <nav>
+            <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+            <a href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
+            <a href="#certifications"><i class="fa-solid fa-award"></i> Certifications</a>
+            <a href="#projects"><i class="fa-solid fa-folder"></i> Projects</a>
+            <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+            <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </nav>
 
-    <div class="hero-right">
-        <div class="image-frame">
-            <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar">
-        </div>
-    </div>
-</section>
+        <a href="Noman-Zulfiqar-CV.pdf" download class="cv-btn">Download CV</a>
+    </aside>
 
-<section id="about" class="section">
-    <h2>About Me</h2>
-    <div class="about-grid">
-        <div class="about-text">
-            <p>
-                Noman Zulfiqar is an undergraduate student
-                and technology enthusiast passionate about
-                exploring emerging technologies and earning
-                industry-recognized certifications.
-            </p>
-            <p>
-                He is committed to continuous learning,
-                developing in-demand digital skills,
-                and staying up to date with the latest
-                advancements in the technology industry.
-            </p>
-        </div>
+    <main class="main-content">
 
-        <div class="about-card">
-            <div>
-                <strong>Name</strong>
-                <p>Noman Zulfiqar</p>
+        <section class="hero" id="home">
+            <div class="hero-left">
+                <span class="welcome">Welcome To My Portfolio</span>
+                <h1>Noman Zulfiqar</h1>
+                <h3>Technology Enthusiast</h3>
+                <p>
+                    Passionate about exploring emerging technologies,
+                    earning industry-recognized certifications,
+                    and continuously developing valuable digital skills
+                    through professional learning and hands-on projects.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="primary-btn">View Projects</a>
+                    <a href="#contact" class="secondary-btn">Contact Me</a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/nomanzulfiqar121-ctrl" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:nomanzulfiqar121@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
             </div>
-            <div>
-                <strong>Education</strong>
-                <p>Undergraduate</p>
+
+            <div class="hero-right">
+                <div class="profile-frame">
+                    <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar">
+                </div>
             </div>
-            <div>
-                <strong>Location</strong>
-                <p>Pakistan</p>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <div class="about-card">
+                <p>
+                    I am an undergraduate student and technology enthusiast
+                    passionate about learning emerging technologies,
+                    earning industry-recognized certifications,
+                    and continuously improving my technical skills.
+                </p>
             </div>
-            <div>
-                <strong>Email</strong>
-                <p>nomanzulfiqar121@gmail.com</p>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">HTML</div>
+                <div class="skill-card">CSS</div>
+                <div class="skill-card">JavaScript</div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<section id="skills" class="section">
-    <h2>My Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-card">HTML</div>
-        <div class="skill-card">CSS</div>
-        <div class="skill-card">JavaScript</div>
-    </div>
-</section>
+        <section id="certifications" class="section">
+            <h2>Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h3>Microsoft Applied Skills</h3>
+                    <p>Generate Reports With AI Research Agents</p>
+                    <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7">
+                        View Credential
+                    </a>
+                </div>
 
-<section id="certifications" class="section">
-    <h2>Certifications</h2>
-    <div class="cert-grid">
-        <div class="cert-card">
-            <h3>Microsoft Applied Skills</h3>
-            <p>Generate Reports with AI Research Agents</p>
-            <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7">
-                View Credential
-            </a>
-        </div>
+                <div class="cert-card">
+                    <h3>HP LIFE</h3>
+                    <p>AI Beginner</p>
+                    <a target="_blank" href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c">
+                        View Credential
+                    </a>
+                </div>
 
-        <div class="cert-card">
-            <h3>HP LIFE</h3>
-            <p>AI Beginner</p>
-            <a target="_blank" href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c">
-                View Credential
-            </a>
-        </div>
+                <div class="cert-card">
+                    <h3>Gemini Educator</h3>
+                    <p>Google</p>
+                    <a target="_blank" href="https://edu.google.accredible.com/1dfd9796-d8bd-414f-808a-f48f3376682c#acc.yp8kj2iw">
+                        View Credential
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <div class="cert-card">
-            <h3>Gemini Educator</h3>
-            <p>Google</p>
-            <a target="_blank" href="https://edu.google.accredible.com/1dfd9796-d8bd-414f-808a-f48f3376682c#acc.yp8kj2iw">
-                View Credential
-            </a>
-        </div>
-    </div>
-</section>
+        <section id="projects" class="section">
+            <h2>Project</h2>
+            <div class="project-card">
+                <h3>Microsoft Learn Student Ambassador Link Converter</h3>
+                <p>A web application designed to simplify Microsoft Learn Student Ambassador links.</p>
+                <a href="https://nomanzulfiqar121-ctrl.github.io/mlsa-link-converter/" target="_blank">
+                    Live Demo
+                </a>
+            </div>
+        </section>
 
-<section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-card">
-        <h3>Microsoft Learn Student Ambassador Link Converter</h3>
-        <p>A web-based utility for converting Microsoft Learn Student Ambassador links.</p>
-        <a target="_blank" href="https://nomanzulfiqar121-ctrl.github.io/mlsa-link-converter/">
-            Live Demo
-        </a>
-    </div>
-</section>
+        <section id="education" class="section">
+            <h2>Education</h2>
+            <div class="education-card">
+                Undergraduate Student
+            </div>
+        </section>
 
-<section id="education" class="section">
-    <h2>Education</h2>
-    <div class="education-card">
-        <h3>Undergraduate Student</h3>
-        <p>Currently Pursuing Undergraduate Education</p>
-    </div>
-</section>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p>nomanzulfiqar121@gmail.com</p>
+                </div>
 
-<section id="contact" class="section">
-    <h2>Contact Me</h2>
-    <div class="contact-grid">
-        <div class="contact-card">
-            <h3>Email</h3>
-            <p>nomanzulfiqar121@gmail.com</p>
-        </div>
+                <div class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <a target="_blank" href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4">
+                        Visit Profile
+                    </a>
+                </div>
 
-        <div class="contact-card">
-            <h3>LinkedIn</h3>
-            <a target="_blank" href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4">
-                Visit Profile
-            </a>
-        </div>
+                <div class="contact-card">
+                    <h3>GitHub</h3>
+                    <a target="_blank" href="https://github.com/nomanzulfiqar121-ctrl">
+                        Visit Profile
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <div class="contact-card">
-            <h3>GitHub</h3>
-            <a target="_blank" href="https://github.com/nomanzulfiqar121-ctrl">
-                Visit Profile
-            </a>
-        </div>
-    </div>
-</section>
+        <footer>
+            © 2026 Noman Zulfiqar. All Rights Reserved.
+        </footer>
 
-<footer>
-    © 2026 Noman Zulfiqar. All Rights Reserved.
-</footer>
+    </main>
 
-</div>
+    <script>
+        /* =========================
+           SMOOTH ACTIVE NAVIGATION
+        ========================= */
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".sidebar nav a");
 
-<script>
-    /* =========================
-       ACTIVE NAVIGATION
-    ========================= */
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".sidebar ul li a");
-
-    window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 150;
-            if (window.pageYOffset >= sectionTop) {
-                current = section.getAttribute("id");
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === "#" + current) {
-                link.classList.add("active");
-            }
-        });
-    });
-
-    /* =========================
-       REVEAL ANIMATION
-    ========================= */
-    const revealElements = document.querySelectorAll(
-        ".section, .skill-card, .cert-card, .project-card, .contact-card"
-    );
-
-    const revealObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
                 }
             });
-        },
-        { threshold: 0.15 }
-    );
 
-    revealElements.forEach(el => {
-        el.classList.add("hidden");
-        revealObserver.observe(el);
-    });
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+            });
+        });
 
-    /* =========================
-       TYPING EFFECT
-    ========================= */
-    const title = document.querySelector(".hero-left h3");
-    const words = [
-        "Technology Enthusiast",
- 
+        /* =========================
+           REVEAL ANIMATION
+        ========================= */
+        const revealItems = document.querySelectorAll(
+            ".section, .skill-card, .cert-card, .project-card, .contact-card, .education-card"
+        );
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        revealItems.forEach(item => {
+            item.classList.add("hidden");
+            observer.observe(item);
+        });
+
+        /* =========================
+           TYPING EFFECT
+        ========================= */
+        const typingText = document.querySelector(".hero-left h3");
+        const words = [
+            "Technology Enthusiast",
+            "Frontend Learner",
+            "Certification Explorer",
+            "Lifelong Learner"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+
+            if (!deleting) {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+        
