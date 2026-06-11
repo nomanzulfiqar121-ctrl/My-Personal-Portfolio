@@ -1,158 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Noman Zulfiqar — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --navy:#0d1b3e;
-  --navy-dark:#081029;
-  --navy-mid:#112249;
-  --sidebar-w:220px;
-  --accent:#7c6af5;
-  --accent2:#5b4de0;
-  --text-main:#e8eaf0;
-  --text-muted:#9ba3b8;
-  --white:#ffffff;
-  --card-bg:#f8f9fc;
-  --border:#e2e5ef;
-  --body-bg:#f0f2f8;
-  --section-bg:#ffffff;
-  --dark-text:#1a2340;
-  --mid-text:#4a5270;
-}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Poppins',sans-serif;
-  background:var(--body-bg);
-  display:flex;
-  min-height:100vh;
-  overflow-x:hidden;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noman Zulfiqar | Portfolio</title>
+    <style>
+        :root {
+            --sidebar-bg: #0b1329;
+            --main-bg: #f4f6f9;
+            --primary-blue: #4361ee;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
 
-/* ── SIDEBAR ── */
-.sidebar{
-  width:var(--sidebar-w);
-  background:var(--navy);
-  min-height:100vh;
-  position:fixed;
-  top:0;left:0;
-  display:flex;
-  flex-direction:column;
-  padding:2rem 0 1.5rem;
-  z-index:200;
-  box-shadow:4px 0 20px rgba(0,0,0,.25);
-}
-.sidebar-logo{
-  text-align:center;
-  padding:0 1.5rem 2rem;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  margin-bottom:1.5rem;
-}
-.logo-box{
-  width:52px;height:52px;
-  background:var(--accent);
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.2rem;font-weight:700;color:white;
-  margin:0 auto .7rem;
-  letter-spacing:.05em;
-}
-.logo-name{
-  color:var(--white);
-  font-size:.8rem;
-  font-weight:700;
-  letter-spacing:.06em;
-  line-height:1.4;
-  text-transform:uppercase;
-}
-nav.side-nav{list-style:none;flex:1;}
-nav.side-nav li a{
-  display:flex;align-items:center;gap:.75rem;
-  padding:.7rem 1.6rem;
-  color:var(--text-muted);
-  text-decoration:none;
-  font-size:.82rem;
-  font-weight:500;
-  transition:all .2s;
-  border-left:3px solid transparent;
-}
-nav.side-nav li a:hover,
-nav.side-nav li a.active{
-  color:var(--white);
-  background:rgba(124,106,245,.15);
-  border-left-color:var(--accent);
-}
-nav.side-nav li a i{width:18px;text-align:center;font-size:.85rem;}
-.sidebar-cv{
-  margin:1rem 1.5rem 0;
-  background:var(--accent);
-  color:white;border:none;
-  padding:.65rem 1rem;
-  border-radius:8px;
-  font-family:'Poppins',sans-serif;
-  font-size:.78rem;font-weight:600;
-  cursor:pointer;width:100%;
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  transition:background .2s;
-}
-.sidebar-cv:hover{background:var(--accent2);}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* ── MAIN ── */
-.main{
-  margin-left:var(--sidebar-w);
-  flex:1;
-  min-width:0;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--main-bg);
+            color: var(--text-dark);
+            display: flex;
+            min-height: 100vh;
+        }
 
-/* ── HERO ── */
-.hero{
-  background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 50%,var(--navy-mid) 100%);
-  padding:3.5rem 4rem 3rem;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:2rem;
-  min-height:420px;
-  position:relative;
-  overflow:hidden;
-}
-/* subtle star dots */
-.hero::before{
-  content:'';
-  position:absolute;inset:0;
-  background-image:
-    radial-gradient(1.5px 1.5px at 15% 20%, rgba(255,255,255,.18) 0%, transparent 100%),
-    radial-gradient(1px 1px at 70% 15%, rgba(255,255,255,.12) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,.1) 0%, transparent 100%),
-    radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,.15) 0%, transparent 100%),
-    radial-gradient(1px 1px at 25% 55%, rgba(255,255,255,.08) 0%, transparent 100%),
-    radial-gradient(2px 2px at 60% 40%, rgba(255,255,255,.06) 0%, transparent 100%);
-  pointer-events:none;
-}
-.hero-text{position:relative;z-index:1;}
-.hero-greeting{
-  color:#a0a8c0;
-  font-size:.95rem;
-  font-weight:400;
-  margin-bottom:.3rem;
-  font-style:italic;
-}
-.hero-name{
-  color:var(--white);
-  font-size:2.6rem;
-  font-weight:800;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  line-height:1.1;
-  margin-bottom:.5rem;
-}
-.hero-role{
-  color:var(--accent);
-  font-size:.95rem;
-  font-weight:500;
-  margin-bottom:1.2r
+        /* ── SIDEBAR NAVIGATION ── */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: #ffffff;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+            z-index: 100;
+        }
+
+        .sidebar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar-menu a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
+            font-weight: 600;
+        }
+
+        /* ── MAIN CONTENT AREA ── */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 40px 50px;
+            max-width: 1250px;
+        }
+
+        /* ── EXACT RECTANGULAR HERO SECTION (TRIMMED & ALIGNED) ── */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 30px 50px; /* Reduced vertical padding to match avatar bottom border */
+            border-radius: 20px;
+            margin-bottom: 45px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+        }
+
+        .hero-info {
+            flex: 1;
+        }
+
+        .hero-info h2 {
+            color: #38bdf8;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .hero-info h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-info .subtitle {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .hero-info p {
+            color: #94a3b8;
+            line-height: 1.5; 
+            margin-bottom: 20px; /* Snug spacing before the buttons row */
+            max-width: 600px;
+            font-size: 0.95rem;
+        }
+
+        /* BUTTONS ROW RESTORED */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 0; /* Zeroed bottom margin to prevent row stretching */
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #314cd4;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
+        }
+
+        /* Portrait Image Rectangular Balanced Frame */
+        .avatar-container {
+            flex-shrink: 0;
+        }
+
+        .avatar-frame {
+            width: 210px;
+            height: 250px; 
+            border-radius: 20px;
+            border: 2px solid rgba(56, 189, 248, 0.25);
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: block;
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ── SECTIONS GENERAL ── */
+        section {
+            margin-bottom: 50px;
+            scroll-margin-top: 40px;
+        }
+
+        .section-heading {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 35px;
+            height: 3px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        /* ABOUT GRID COMPONENT */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 24px;
+        }
+
+        .about-text {
+            background: var(--card-bg);
+            padding: 30px; 
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            line-height: 1.8;
+            font-size: 1.05rem; 
+            color: #334155;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.005);
+            display: flex;
+            align-items: center;
+        }
+
+        .about-text-inner {
+            max-width: 360px; 
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.005);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .info-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 2px;
+            font-size: 0.95rem;
+        }
+
+        /* Skills Set Styles */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-pill {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #334155;
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-blue);
+        }
+
+        /* Certifications Layout Matrix */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 190px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            border-color: #cbd5e1;
+        }
+
+        .card-org {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        
+        .org-ms { color: #f25f22; }
+        .org-hp { color: #0096d6; }
+        .org-google { color: #ea4335; }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--text-dark);
+        }
+
+        .card-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        /* Project Panel Box */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Contact Items Link System */
+        .contact-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+        }
+
+        .contact-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+
+        /* ── RESPONSIVE BALANCING ── */
+        @media (max-width: 1200px) {
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; position: relative; height: auto; padding: 20px; }
+            .sidebar-brand { margin-bottom: 15px; }
+            .sidebar-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+            .sidebar-menu li { margin-bottom: 0; }
+            .main-content { margin-left: 0; padding: 25px 15px; }
+            .hero { flex-direction: column-reverse; text-align: center; padding: 30px 20px; gap: 20px; height: auto; }
+            .hero-buttons { justify-content: center; }
+            .about-container { grid-template-columns: 1fr; }
+            .about-text-inner { max-width: 100%; }
+            .cert-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-brand">NOMAN ZULFIQAR</div>
+        <ul class="sidebar-menu">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="home" class="hero">
+            <div class="hero-info">
+                <h2>Hi, I'm</h2>
+                <h1>Noman Zulfiqar</h1>
+                <div class="subtitle">Technology Enthusiast | Lifelong Learner</div>
+                <p>I am an undergraduate student with a strong passion for exploring new technologies, learning industry-relevant skills, and continuously growing through professional courses and hands-on learning.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">View My Work →</a>
+                    <a href="#contact" class="btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            
+            <div class="avatar-container">
+                <div class="avatar-frame">
+                    <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar Picture" onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1e293b';">
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-heading">About Me</div>
+            <div class="about-container">
+                <div class="about-text">
+                    <div class="about-text-inner">
+                        Noman Zulfiqar is an undergrad student passionate about emerging tech and certifications. Committed to growth, he continuously develops valuable digital skills to create real-world impact.
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-item">
+                        <div class="info-details">
+                            <span class="info-label">Name</span>
+                            <span class="info-value">Noman Zulfiqar</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-details">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">Pakistan</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-details">
+                            <span class="info-label">Email</span>
+                            <span class="info-value">nomanzulfiqar121@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-heading">My Skills</div>
+            <div class="skills-grid">
+                <div class="skill-pill">HTML</div>
+                <div class="skill-pill">CSS</div>
+                <div class="skill-pill">JavaScript</div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <div class="section-heading">Certifications</div>
+            <div class="cert-grid">
+                
+                <div class="portfolio-card">
+                    <div>
+                        <div class="card-org org-ms">Microsoft</div>
+                        <div class="card-title">Applied Skills: Generate report with AI research agents</div>
+                    </div>
+                    <a href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7" target="_blank" class="card-link">View Credential ↗</a>
+                </div>
+
+                <div class="portfolio-card">
+                    <div>
+                        <div class="card-org org-hp">HP LIFE</div>
+                        <div class="card-title">AI Beginner Professional Certification</div>
+                    </div>
+                    <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
+                </div>
+
+                <div class="portfolio-card">
+                    <div>
+                        <div class="card-org org-google">Google / Accredible</div>
+                        <div class="card-title">Gemini Educator Core Credential</div>
+                    </div>
+                    <a href="https://edu.google.accredible.com/1dfd9796-d8bd-414f-808a-f48f3376682c#acc.yp8kj2iw" target="_blank" class="card-link">View Credential ↗</a>
+                </div>
+
+                <div class="portfolio-card">
+                    <div>
+                        <div class="card-org org-ms">Microsoft / MLSA</div>
+                        <div class="card-title">Microsoft Learn Student Ambassador Core Milestones</div>
+                    </div>
+                    <a href="#" class="card-link" style="color: var(--text-light); pointer-events: none;">Verified Profile Card</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-heading">Projects</div>
+            <div class="project-card">
+                <div>
+                    <div class="card-org org-ms">Automated Utility Tool</div>
+                    <div class="card-title" style="font-size: 1.4rem; margin-top: 5px;">MLSA Link Converter</div>
+                    <p style="color: var(--text-light); margin-top: 10px; line-height: 1.5; max-width: 800px; font-size: 0.95rem;">
+                        An engineering web application developed to format, clean, and map specific resource URLs automatically for the Microsoft Learn Student Ambassador global framework.
+                    </p>
+                </div>
+                <a href="https://nomanzulfiqar121-ctrl.github.io/mlsa-link-converter/" target="_blank" class="btn-primary" style="align-start: flex-start; margin-top: 5px;">Launch Live Tool ↗</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-heading">Contact Me</div>
+            <div class="contact-row">
+                <a href="mailto:nomanzulfiqar121@gmail.com" class="contact-item">
+                    <span style="color: var(--primary-blue); font-size: 0.75rem; text-transform: uppercase;">Email</span>
+                    <span style="font-size: 1rem;">nomanzulfiqar121@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="contact-item">
+                    <span style="color: #0077b5; font-size: 0.75rem; text-transform: uppercase;">LinkedIn</span>
+                    <span style="font-size: 1rem;">Connect Professionally ↗</span>
+                </a>
+                <a href="https://github.com/nomanzulfiqar121-ctrl" target="_blank" class="contact-item">
+                    <span style="color: #24292e; font-size: 0.75rem; text-transform: uppercase;">GitHub</span>
+                    <span style="font-size: 1rem;">View Source Repositories ↗</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.sidebar-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 80)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
