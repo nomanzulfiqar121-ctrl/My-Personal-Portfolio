@@ -31,7 +31,7 @@
             padding: 0;
         }
 
-        /* ── SIDEBAR FIX: FIXED GAP WITH HERO MERGE ── */
+        /* ── SIDEBAR FIXED: FULL HEIGHT TO PREVENT EXTRA UNDER-LINES ── */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -43,9 +43,8 @@
             flex-direction: column;
             padding: 40px 20px 30px 20px;
             z-index: 100;
-            height: auto;
-            max-height: max-content;
-            border-bottom-right-radius: 0px; /* Merges directly with hero edge */
+            height: 100vh; /* Sidebar ko full vertically locked kiya taaki edges seamless lagein */
+            border-bottom-right-radius: 0px; 
         }
 
         .sidebar-brand {
@@ -82,15 +81,15 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT (REMOVED PADDING TO FLUSH HERO WITH SIDEBAR) ── */
+        /* ── MAIN CONTENT POSITIONING ── */
         .main-content {
             margin-left: 260px;
             flex: 1;
-            padding: 0px 40px 40px 0px; /* Left aur Top padding zero ki taaki Hero bilkul touch ho jaye */
+            padding: 0px 40px 40px 0px; 
             max-width: 1250px;
         }
 
-        /* ── HERO SECTION ADJUSTED FOR FLUSH ATTACHMENT ── */
+        /* ── HERO SECTION: SEAMLESS BOUNDARIES ── */
         .hero {
             display: flex;
             align-items: center;
@@ -99,11 +98,11 @@
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             padding: 40px 50px;
-            border-top-left-radius: 0px; /* Corners straightened to blend seamlessly */
+            border-top-left-radius: 0px; 
             border-bottom-left-radius: 0px;
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
-            margin-top: 0px; /* Top white gap removed */
+            margin-top: 0px; 
             margin-bottom: 45px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
         }
@@ -193,9 +192,9 @@
             object-fit: cover;
         }
 
-        /* ── SECTIONS INDENTED TO KEEP BALANCED DESIGN ── */
+        /* ── CONTENT SECTIONS ALIGNMENT ── */
         section:not(.hero) {
-            margin-left: 40px; /* Keeps About Me, Skills etc. beautifully aligned */
+            margin-left: 40px; 
             margin-bottom: 50px;
             scroll-margin-top: 40px;
         }
@@ -391,7 +390,7 @@
                 padding: 30px 20px; 
                 gap: 20px; 
                 margin-top: 5px; 
-                border-radius: 20px; /* Rounded corners restored for responsive mobile view */
+                border-radius: 20px; 
             }
             .hero-buttons { 
                 justify-content: center; 
@@ -403,7 +402,7 @@
                 grid-template-columns: 1fr; 
             }
             section:not(.hero) {
-                margin-left: 0px; /* Full alignment on smaller devices */
+                margin-left: 0px; 
             }
         }
     </style>
