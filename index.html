@@ -34,7 +34,7 @@
             display: flex;
             max-width: 1500px;
             margin: 0 auto;
-            align-items: flex-start; /* Sidebar aur hero section top se align hain */
+            align-items: flex-start;
         }
 
         /* ── SIDEBAR CONFIGURATION WITH 'NZ' LOGO ── */
@@ -46,7 +46,7 @@
             flex-direction: column;
             padding: 30px 20px;
             flex-shrink: 0;
-            min-height: 440px; /* Hero section ki height ke mutabik align */
+            min-height: 440px; /* Aligns visually with the hero element */
         }
 
         /* Figma Style Short Logo 'NZ' */
@@ -93,14 +93,14 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT LAYER ── */
+        /* ── MAIN CONTENT LAYER (GAP FIXED HERE) ── */
         .main-content {
             flex: 1;
-            padding: 0px 40px 40px 0px; /* Top padding is 0 to merge hero seamlessly */
+            padding: 0px 40px 40px 18px; /* Left padding reduced to 18px for a close 1-inch aesthetic attachment */
             background-color: var(--main-bg);
         }
 
-        /* ── HERO SECTION: ATTACHED WITH NO GAPS ── */
+        /* ── HERO SECTION: ATTACHED CLOSELY WITH SIDEBAR ── */
         .hero {
             display: flex;
             align-items: center;
@@ -207,7 +207,7 @@
 
         /* ── INTERNAL SUB-SECTIONS CONFIG ── */
         section:not(.hero) {
-            margin-left: 40px; 
+            margin-left: 20px; /* Inner sections match the tight sidebar grid profile */
             margin-bottom: 50px;
             scroll-margin-top: 40px;
         }
