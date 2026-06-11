@@ -31,7 +31,7 @@
             padding: 0;
         }
 
-        /* ── SIDEBAR FIXED: FULL HEIGHT TO PREVENT EXTRA UNDER-LINES ── */
+        /* ── SIDEBAR LOCKED SYSTEM ── */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -39,12 +39,13 @@
             position: fixed;
             top: 0;
             left: 0;
+            bottom: 0; /* Sidebar ko screen ke sath vertical block kar diya */
             display: flex;
             flex-direction: column;
             padding: 40px 20px 30px 20px;
             z-index: 100;
-            height: 100vh; /* Sidebar ko full vertically locked kiya taaki edges seamless lagein */
-            border-bottom-right-radius: 0px; 
+            height: 100vh;
+            overflow-y: auto; /* Agar links zyada hon toh andar hi scroll ho, bahar nahi */
         }
 
         .sidebar-brand {
@@ -81,15 +82,16 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT POSITIONING ── */
+        /* ── MAIN CONTENT POSITIONING (PERFECT EDGE TO EDGE MERGE) ── */
         .main-content {
-            margin-left: 260px;
+            margin-left: 260px; /* Sidebar ke barabar se shuru hoga */
             flex: 1;
-            padding: 0px 40px 40px 0px; 
-            max-width: 1250px;
+            padding: 0px 40px 40px 0px; /* Left padding 0px ki taaki hero bina gap ke direct touch ho sky */
+            max-width: 100%;
+            background-color: var(--main-bg);
         }
 
-        /* ── HERO SECTION: SEAMLESS BOUNDARIES ── */
+        /* ── HERO SECTION ── */
         .hero {
             display: flex;
             align-items: center;
@@ -97,14 +99,16 @@
             gap: 40px;
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
-            padding: 40px 50px;
-            border-top-left-radius: 0px; 
-            border-bottom-left-radius: 0px;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
-            margin-top: 0px; 
+            padding: 50px 50px;
+            margin-top: 0px;
+            margin-left: 0px; /* Sidebar ke sath zero merge space */
             margin-bottom: 45px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 24px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+            width: 100%;
         }
 
         .hero-info {
@@ -192,7 +196,7 @@
             object-fit: cover;
         }
 
-        /* ── CONTENT SECTIONS ALIGNMENT ── */
+        /* ── INNER SECTIONS MARGIN (HERO KE ILAWA BAKI SECTIONS KO SIDE SE INDENT KIYA) ── */
         section:not(.hero) {
             margin-left: 40px; 
             margin-bottom: 50px;
