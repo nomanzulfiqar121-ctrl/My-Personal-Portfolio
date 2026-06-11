@@ -29,42 +29,51 @@
             padding: 0;
         }
 
-        /* ── INTERFACE WRAPPER FOR EQUAL ALIGNMENT ── */
+        /* ── MAIN STRUCTURE WRAPPER ── */
         .app-container {
             display: flex;
             max-width: 1500px;
             margin: 0 auto;
-            position: relative;
+            align-items: flex-start; /* Sidebar aur content top se align rahenge */
         }
 
-        /* ── SIDEBAR: NO EXTRA LENGTH BELOW CONTACT ME ── */
+        /* ── SIDEBAR CONFIGURATION WITH DESIGN REFERENCE ── */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
             color: #ffffff;
             display: flex;
             flex-direction: column;
-            padding: 40px 20px 30px 20px;
+            padding: 30px 20px;
             flex-shrink: 0;
-            /* Yahan se height vh hata di taaki contact me ke neeche fazul lambi line na bane */
-            align-self: flex-start; 
+            min-height: 440px; /* Hero section ki height ke barabar balance */
         }
 
-        .sidebar-brand {
+        /* Figma Style Short Logo 'NZ' */
+        .sidebar-brand-box {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.3rem;
-            font-weight: 700;
+            font-weight: 800;
             color: #ffffff;
-            text-align: center;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            margin-bottom: 35px;
+            margin-left: 10px;
         }
 
         .sidebar-menu {
             list-style: none;
+            width: 100%;
         }
 
         .sidebar-menu li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .sidebar-menu a {
@@ -84,14 +93,14 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT POSITIONING ── */
+        /* ── MAIN CONTENT LAYER ── */
         .main-content {
             flex: 1;
-            padding: 0px 40px 40px 0px; 
+            padding: 0px 40px 40px 0px; /* Top padding is 0 to merge hero seamlessly */
             background-color: var(--main-bg);
         }
 
-        /* ── HERO SECTION: SEAMLESS ATTACHMENT WITH SIDEBAR ── */
+        /* ── HERO SECTION: SEAMLESS ATTACHMENT WITH NO GAPS ── */
         .hero {
             display: flex;
             align-items: center;
@@ -100,14 +109,15 @@
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             padding: 50px 50px;
-            margin-top: 0px;
-            margin-left: 0px; /* Sidebar ke sath direct jura hua hai */
+            margin-top: 0px; /* Sidebar ke top ke sath barabar chipka hua hai */
+            margin-left: 0px; 
             margin-bottom: 45px;
             border-top-left-radius: 0px; 
             border-bottom-left-radius: 0px;
             border-top-right-radius: 0px;
             border-bottom-right-radius: 24px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+            min-height: 440px; /* Fixed scale height for grid balancing */
         }
 
         .hero-info {
@@ -195,7 +205,7 @@
             object-fit: cover;
         }
 
-        /* ── INNER CONTENT PAGES SETTINGS ── */
+        /* ── INTERNAL SUB-SECTIONS CONFIG ── */
         section:not(.hero) {
             margin-left: 40px; 
             margin-bottom: 50px;
@@ -222,7 +232,7 @@
             border-radius: 2px;
         }
 
-        /* ABOUT GRID COMPONENT */
+        /* About Component Cards */
         .about-container {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
@@ -268,7 +278,7 @@
             margin-top: 2px;
         }
 
-        /* Skills Set Styles */
+        /* Skills Pill Engine */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -285,7 +295,7 @@
             color: #334155;
         }
 
-        /* Certifications Layout Matrix */
+        /* Certifications Board */
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -328,7 +338,7 @@
             padding-top: 15px;
         }
 
-        /* Project Panel Box */
+        /* Projects Section Base */
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -339,27 +349,7 @@
             gap: 12px;
         }
 
-        /* Contact Items Link System */
-        .contact-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-        }
-
-        .contact-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        /* ── RESPONSIVE BALANCING ── */
+        /* Responsive Layout Engine */
         @media (max-width: 900px) {
             .app-container {
                 flex-direction: column;
@@ -367,9 +357,10 @@
             .sidebar { 
                 width: 100%; 
                 padding: 20px; 
+                min-height: auto;
             }
-            .sidebar-brand { 
-                margin-bottom: 15px; 
+            .sidebar-brand-box { 
+                margin: 0 auto 15px auto; 
             }
             .sidebar-menu { 
                 display: flex; 
@@ -389,6 +380,7 @@
                 padding: 30px 20px; 
                 gap: 20px; 
                 border-radius: 20px; 
+                min-height: auto;
             }
             .hero-buttons { 
                 justify-content: center; 
@@ -410,7 +402,7 @@
     <div class="app-container">
 
         <nav class="sidebar">
-            <div class="sidebar-brand">NOMAN ZULFIQAR</div>
+            <div class="sidebar-brand-box">NZ</div>
             <ul class="sidebar-menu">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About Me</a></li>
@@ -483,7 +475,6 @@
             <section id="certifications">
                 <div class="section-heading">Certifications</div>
                 <div class="grid-layout">
-                    
                     <div class="portfolio-card">
                         <div>
                             <div class="card-org org-ms">Microsoft Applied Skills</div>
@@ -491,7 +482,6 @@
                         </div>
                         <a href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7" target="_blank" class="card-link">View Credential ↗</a>
                     </div>
-
                     <div class="portfolio-card">
                         <div>
                             <div class="card-org org-hp">HP LIFE</div>
@@ -499,81 +489,10 @@
                         </div>
                         <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
                     </div>
-
-                    <div class="portfolio-card">
-                        <div>
-                            <div class="card-org org-google">Google / Accredible</div>
-                            <div class="card-title">Gemini Educator Core Credential</div>
-                        </div>
-                        <a href="https://edu.google.accredible.com/1dfd9796-d8bd-414f-808a-f48f3376682c#acc.yp8kj2iw" target="_blank" class="card-link">View Credential ↗</a>
-                    </div>
-
-                    <div class="portfolio-card">
-                        <div>
-                            <div class="card-org org-ms">Microsoft / MLSA</div>
-                            <div class="card-title">Microsoft Learn Student Ambassador Core Milestones</div>
-                        </div>
-                        <a href="#" class="card-link" style="color: var(--text-light); pointer-events: none;">Verified Profile Card</a>
-                    </div>
-
-                </div>
-            </section>
-
-            <section id="projects">
-                <div class="section-heading">Projects</div>
-                <div class="project-card">
-                    <div>
-                        <div class="card-org org-ms">Microsoft Learn Student Ambassador Tool</div>
-                        <div class="card-title" style="font-size: 1.4rem; margin-top: 5px;">MLSA Link Converter</div>
-                        <p style="color: var(--text-light); margin-top: 10px; line-height: 1.5; font-size: 0.95rem;">
-                            An official automated web utility created to format, manage, and convert custom resource pathways effortlessly.
-                        </p>
-                    </div>
-                    <a href="https://nomanzulfiqar121-ctrl.github.io/mlsa-link-converter/" target="_blank" class="btn-primary" style="align-self: flex-start; margin-top: 5px;">Launch Live Tool ↗</a>
-                </div>
-            </section>
-
-            <section id="contact">
-                <div class="section-heading">Contact Me</div>
-                <div class="contact-row">
-                    <a href="mailto:nomanzulfiqar121@gmail.com" class="contact-item">
-                        <span style="color: var(--primary-blue); font-size: 0.75rem; text-transform: uppercase;">Email</span>
-                        <span style="font-size: 1rem;">nomanzulfiqar121@gmail.com</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4" target="_blank" class="contact-item">
-                        <span style="color: #0077b5; font-size: 0.75rem; text-transform: uppercase;">LinkedIn</span>
-                        <span style="font-size: 1rem;">Connect Professionally ↗</span>
-                    </a>
-                    <a href="https://github.com/nomanzulfiqar121-ctrl" target="_blank" class="contact-item">
-                        <span style="color: #24292e; font-size: 0.75rem; text-transform: uppercase;">GitHub</span>
-                        <span style="font-size: 1rem;">View Repositories ↗</span>
-                    </a>
                 </div>
             </section>
 
         </main>
     </div>
-
-    <script>
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.sidebar-menu a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= (sectionTop - 80)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
