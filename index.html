@@ -86,7 +86,7 @@
             max-width: 1250px;
         }
 
-        /* ── HERO SECTION FIXED FLEX LAYOUT ── */
+        /* ── HERO SECTION WITH MERGED IMAGE ALIGNMENT ── */
         .hero {
             display: flex;
             align-items: center;
@@ -94,11 +94,10 @@
             gap: 40px;
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
-            padding: 45px 50px; 
+            padding: 35px 50px; /* Perfectly padded to match template borders */
             border-radius: 20px;
             margin-bottom: 45px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-            min-height: 340px;
         }
 
         .hero-info {
@@ -129,51 +128,12 @@
         .hero-info p {
             color: #94a3b8;
             line-height: 1.6; 
-            margin-bottom: 25px;
+            margin-bottom: 0; /* Removed extra spacing underneath to tightly snap layout */
             max-width: 600px;
             font-size: 0.95rem;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 12px 26px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-
-        .btn-primary:hover {
-            background-color: #314cd4;
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            border: 1px solid rgba(255,255,255,0.25);
-            color: white;
-            padding: 12px 26px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.08);
-            transform: translateY(-1px);
-        }
-
-        /* Portrait Image Frame */
+        /* Portrait Image Frame - Balanced Form Factor */
         .avatar-container {
             flex-shrink: 0;
         }
@@ -185,6 +145,7 @@
             border: 2px solid rgba(56, 189, 248, 0.25);
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: block;
         }
 
         .avatar-frame img {
@@ -219,7 +180,7 @@
             border-radius: 2px;
         }
 
-        /* EXACT ABOUT GRID COMPONENT */
+        /* ABOUT GRID COMPONENT */
         .about-container {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
@@ -232,7 +193,7 @@
             border-radius: 14px;
             border: 1px solid var(--border-color);
             line-height: 1.8;
-            font-size: 1.05rem; /* Marginally scaled to optimize text block structure */
+            font-size: 1.05rem; 
             color: #334155;
             box-shadow: 0 4px 6px rgba(0,0,0,0.005);
             display: flex;
@@ -240,7 +201,7 @@
         }
 
         .about-text-inner {
-            max-width: 360px; /* Precise width alignment constraint matching layout specifications */
+            max-width: 360px; 
         }
 
         .info-card {
@@ -407,8 +368,7 @@
             .sidebar-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
             .sidebar-menu li { margin-bottom: 0; }
             .main-content { margin-left: 0; padding: 25px 15px; }
-            .hero { flex-direction: column-reverse; text-align: center; padding: 30px 20px; gap: 20px; height: auto; min-height: unset; }
-            .hero-buttons { justify-content: center; }
+            .hero { flex-direction: column-reverse; text-align: center; padding: 30px 20px; gap: 20px; height: auto; }
             .about-container { grid-template-columns: 1fr; }
             .about-text-inner { max-width: 100%; }
             .cert-grid { grid-template-columns: 1fr; }
@@ -437,10 +397,6 @@
                 <h1>Noman Zulfiqar</h1>
                 <div class="subtitle">Technology Enthusiast | Lifelong Learner</div>
                 <p>I am an undergraduate student with a strong passion for exploring new technologies, learning industry-relevant skills, and continuously growing through professional courses and hands-on learning.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary">View My Work →</a>
-                    <a href="#contact" class="btn-secondary">Contact Me</a>
-                </div>
             </div>
             
             <div class="avatar-container">
