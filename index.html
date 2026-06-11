@@ -31,25 +31,28 @@
 
         /* ── MAIN STRUCTURE WRAPPER ── */
         .app-container {
-            display: flex;
             max-width: 1500px;
             margin: 0 auto;
-            align-items: flex-start;
         }
 
-        /* ── SIDEBAR WITH ZERO EXTRA SPACE NEXT TO TEXT ── */
+        /* ── TOP HEADER BLOCK (SIDEBAR & HERO LOCKED TOGETHER) ── */
+        .top-layout {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+        }
+
         .sidebar {
-            width: max-content; /* Width is tightly locked to text size, no extra right gap */
+            width: 220px;
             background-color: var(--sidebar-bg);
             color: #ffffff;
             display: flex;
             flex-direction: column;
-            padding: 30px 20px 30px 15px; /* Perfect tight internal padding */
+            padding: 30px 15px;
             flex-shrink: 0;
             min-height: 440px;
         }
 
-        /* Figma Style Short Logo 'NZ' */
         .sidebar-brand-box {
             width: 50px;
             height: 50px;
@@ -82,10 +85,10 @@
             font-size: 0.95rem;
             display: flex;
             align-items: center;
-            padding: 12px 15px 12px 10px; /* Snug styling padding to kill inner space */
+            padding: 12px 15px;
             border-radius: 8px;
             transition: all 0.3s ease;
-            white-space: nowrap; /* Prevents menu links from breaking into multiple lines */
+            white-space: nowrap;
         }
 
         .sidebar-menu a:hover, .sidebar-menu a.active {
@@ -94,14 +97,12 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT LAYER (ZERO GAP FOR ATTACHMENT) ── */
-        .main-content {
+        .hero-container {
             flex: 1;
-            padding: 0px 40px 40px 0px; /* Left padding is 0 so Hero section attaches directly to sidebar */
+            padding: 0px 40px 0px 0px; 
             background-color: var(--main-bg);
         }
 
-        /* ── HERO SECTION: ATTACHED DIRECTLY TO SIDEBAR ── */
         .hero {
             display: flex;
             align-items: center;
@@ -110,12 +111,6 @@
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             padding: 50px 50px;
-            margin-top: 0px;
-            margin-left: 0px; /* Zero gap connection */
-            margin-bottom: 45px;
-            border-top-left-radius: 0px; 
-            border-bottom-left-radius: 0px;
-            border-top-right-radius: 0px;
             border-bottom-right-radius: 24px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
             min-height: 440px;
@@ -206,27 +201,34 @@
             object-fit: cover;
         }
 
-        /* ── INTERNAL SUB-SECTIONS (BLUE LINES COMPLETELY REMOVED) ── */
+        /* ── LOWER CONTENT AREA CENTRALIZED ARCHITECTURE ── */
+        .bottom-sections-container {
+            max-width: 1000px; /* Locks the row sections inside a perfect centered card layout */
+            margin: 50px auto; /* Centers the whole container block and cleans left blank space */
+            padding: 0 40px;
+        }
+
         section:not(.hero) {
-            margin-left: 40px; /* Keeps internal components clean and beautifully aligned */
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             scroll-margin-top: 40px;
+            width: 100%;
         }
 
         .section-heading {
             font-size: 1.45rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--text-dark);
             position: relative;
             padding-bottom: 6px;
         }
 
-        /* About Component Cards */
+        /* About Component Row Grid Fix */
         .about-container {
             display: grid;
-            grid-template-columns: 1.6fr 1fr;
+            grid-template-columns: 1.5fr 1fr;
             gap: 24px;
+            width: 100%;
         }
 
         .about-text {
@@ -236,6 +238,7 @@
             border: 1px solid var(--border-color);
             font-size: 1.05rem; 
             color: #334155;
+            line-height: 1.6;
             display: flex;
             align-items: center;
         }
@@ -268,11 +271,12 @@
             margin-top: 2px;
         }
 
-        /* Skills Pill Engine */
+        /* Row Wise Skills Layout Engine */
         .skills-grid {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            width: 100%;
         }
 
         .skill-pill {
@@ -284,11 +288,12 @@
             color: #334155;
         }
 
-        /* Grid Engine for Certifications */
+        /* Row Wise Certifications Grid Engine */
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            width: 100%;
         }
 
         .portfolio-card {
@@ -329,7 +334,7 @@
             display: inline-block;
         }
 
-        /* Projects Section styling */
+        /* Row-wise Project Block Engine */
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -338,23 +343,24 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            max-width: 800px;
+            width: 100%;
         }
 
-        /* Contact Section Grid */
+        /* Contact Row Grid Component */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            width: 100%;
         }
 
-        /* Responsive Layout Engine */
-        @media (max-width: 900px) {
-            .app-container {
+        /* Fully Fluid Responsive System */
+        @media (max-width: 991px) {
+            .top-layout {
                 flex-direction: column;
             }
             .sidebar { 
-                width: 100% !important; 
+                width: 100%; 
                 padding: 20px; 
                 min-height: auto;
             }
@@ -370,31 +376,27 @@
             .sidebar-menu li { 
                 margin-bottom: 0; 
             }
-            .main-content { 
-                padding: 15px; 
+            .hero-container {
+                padding: 0;
+                width: 100%;
             }
             .hero { 
                 flex-direction: column-reverse; 
                 text-align: center; 
                 padding: 30px 20px; 
                 gap: 20px; 
-                border-radius: 20px; 
+                border-radius: 0px; 
                 min-height: auto;
             }
             .hero-buttons { 
                 justify-content: center; 
             }
-            .about-container { 
+            .bottom-sections-container {
+                padding: 0 20px;
+                margin: 30px auto;
+            }
+            .about-container, .grid-layout, .contact-grid { 
                 grid-template-columns: 1fr; 
-            }
-            .grid-layout { 
-                grid-template-columns: 1fr; 
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            section:not(.hero) {
-                margin-left: 0px; 
             }
         }
     </style>
@@ -403,39 +405,43 @@
 
     <div class="app-container">
 
-        <nav class="sidebar">
-            <div class="sidebar-brand-box">NZ</div>
-            <ul class="sidebar-menu">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact Me</a></li>
-            </ul>
-        </nav>
+        <div class="top-layout">
+            <nav class="sidebar">
+                <div class="sidebar-brand-box">NZ</div>
+                <ul class="sidebar-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </nav>
 
-        <main class="main-content">
+            <div class="hero-container">
+                <section id="home" class="hero">
+                    <div class="hero-info">
+                        <h2>Hi, I'm</h2>
+                        <h1>Noman Zulfiqar</h1>
+                        <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
+                        <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn-primary">View My Work →</a>
+                            <a href="#contact" class="btn-secondary">Contact Me</a>
+                        </div>
+                    </div>
+                    
+                    <div class="avatar-container">
+                        <div class="avatar-frame">
+                            <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar Picture" onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1e293b';">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="bottom-sections-container">
             
-            <section id="home" class="hero">
-                <div class="hero-info">
-                    <h2>Hi, I'm</h2>
-                    <h1>Noman Zulfiqar</h1>
-                    <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
-                    <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn-primary">View My Work →</a>
-                        <a href="#contact" class="btn-secondary">Contact Me</a>
-                    </div>
-                </div>
-                
-                <div class="avatar-container">
-                    <div class="avatar-frame">
-                        <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar Picture" onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1e293b';">
-                    </div>
-                </div>
-            </section>
-
             <section id="about">
                 <div class="section-heading">About Me</div>
                 <div class="about-container">
@@ -546,7 +552,7 @@
                 </div>
             </section>
 
-        </main>
+        </div>
     </div>
 </body>
 </html>
