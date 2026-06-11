@@ -98,7 +98,7 @@
             border-radius: 20px;
             margin-bottom: 45px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-            min-height: 340px; /* Restored ideal container footprint safely */
+            min-height: 340px;
         }
 
         .hero-info {
@@ -173,7 +173,7 @@
             transform: translateY(-1px);
         }
 
-        /* Portrait Image Rectangular Balanced Frame */
+        /* Portrait Image Frame */
         .avatar-container {
             flex-shrink: 0;
         }
@@ -219,7 +219,7 @@
             border-radius: 2px;
         }
 
-        /* EXACT ABOUT GRID COMPONENT - COMPACT COLUMN CONFIG */
+        /* EXACT ABOUT GRID COMPONENT */
         .about-container {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
@@ -231,17 +231,16 @@
             padding: 30px; 
             border-radius: 14px;
             border: 1px solid var(--border-color);
-            line-height: 1.7;
-            font-size: 0.95rem;
-            color: #475569;
+            line-height: 1.8;
+            font-size: 1.05rem; /* Marginally scaled to optimize text block structure */
+            color: #334155;
             box-shadow: 0 4px 6px rgba(0,0,0,0.005);
             display: flex;
             align-items: center;
         }
 
-        /* Wrapped utility box inner width constraint for exact word wrapping */
         .about-text-inner {
-            max-width: 460px; /* Limits width so it cleanly breaks into 5-6 words per line */
+            max-width: 360px; /* Precise width alignment constraint matching layout specifications */
         }
 
         .info-card {
@@ -456,7 +455,7 @@
             <div class="about-container">
                 <div class="about-text">
                     <div class="about-text-inner">
-                        Noman Zulfiqar is an undergraduate student and technology enthusiast passionate about exploring emerging technologies and earning industry-recognized certifications. Dedicated to continuous growth, I enjoy exploring new digital skills, solving problems, and staying updated with the latest trends in the tech world. I am committed to continuous growth and building a strong foundation for my future in technology.
+                        Noman Zulfiqar is an undergrad student passionate about emerging tech and certifications. Committed to growth, he continuously develops valuable digital skills to create real-world impact.
                     </div>
                 </div>
                 <div class="info-card">
@@ -584,4 +583,6 @@
                 }
             });
         });
-    </scr
+    </script>
+</body>
+</html>
