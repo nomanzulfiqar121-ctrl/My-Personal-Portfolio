@@ -25,27 +25,29 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--main-bg);
             color: var(--text-dark);
-            display: flex;
-            min-height: 100vh;
             margin: 0;
             padding: 0;
         }
 
-        /* ── SIDEBAR LOCKED SYSTEM ── */
+        /* ── INTERFACE WRAPPER FOR EQUAL ALIGNMENT ── */
+        .app-container {
+            display: flex;
+            max-width: 1500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* ── SIDEBAR: NO EXTRA LENGTH BELOW CONTACT ME ── */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
             color: #ffffff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0; /* Sidebar ko screen ke sath vertical block kar diya */
             display: flex;
             flex-direction: column;
             padding: 40px 20px 30px 20px;
-            z-index: 100;
-            height: 100vh;
-            overflow-y: auto; /* Agar links zyada hon toh andar hi scroll ho, bahar nahi */
+            flex-shrink: 0;
+            /* Yahan se height vh hata di taaki contact me ke neeche fazul lambi line na bane */
+            align-self: flex-start; 
         }
 
         .sidebar-brand {
@@ -82,16 +84,14 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT POSITIONING (PERFECT EDGE TO EDGE MERGE) ── */
+        /* ── MAIN CONTENT POSITIONING ── */
         .main-content {
-            margin-left: 260px; /* Sidebar ke barabar se shuru hoga */
             flex: 1;
-            padding: 0px 40px 40px 0px; /* Left padding 0px ki taaki hero bina gap ke direct touch ho sky */
-            max-width: 100%;
+            padding: 0px 40px 40px 0px; 
             background-color: var(--main-bg);
         }
 
-        /* ── HERO SECTION ── */
+        /* ── HERO SECTION: SEAMLESS ATTACHMENT WITH SIDEBAR ── */
         .hero {
             display: flex;
             align-items: center;
@@ -101,14 +101,13 @@
             color: white;
             padding: 50px 50px;
             margin-top: 0px;
-            margin-left: 0px; /* Sidebar ke sath zero merge space */
+            margin-left: 0px; /* Sidebar ke sath direct jura hua hai */
             margin-bottom: 45px;
-            border-top-left-radius: 0px;
+            border-top-left-radius: 0px; 
             border-bottom-left-radius: 0px;
             border-top-right-radius: 0px;
             border-bottom-right-radius: 24px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-            width: 100%;
         }
 
         .hero-info {
@@ -196,7 +195,7 @@
             object-fit: cover;
         }
 
-        /* ── INNER SECTIONS MARGIN (HERO KE ILAWA BAKI SECTIONS KO SIDE SE INDENT KIYA) ── */
+        /* ── INNER CONTENT PAGES SETTINGS ── */
         section:not(.hero) {
             margin-left: 40px; 
             margin-bottom: 50px;
@@ -362,15 +361,12 @@
 
         /* ── RESPONSIVE BALANCING ── */
         @media (max-width: 900px) {
-            body { 
-                flex-direction: column; 
+            .app-container {
+                flex-direction: column;
             }
             .sidebar { 
                 width: 100%; 
-                position: relative; 
-                height: auto; 
                 padding: 20px; 
-                border-radius: 0;
             }
             .sidebar-brand { 
                 margin-bottom: 15px; 
@@ -385,7 +381,6 @@
                 margin-bottom: 0; 
             }
             .main-content { 
-                margin-left: 0; 
                 padding: 15px; 
             }
             .hero { 
@@ -393,7 +388,6 @@
                 text-align: center; 
                 padding: 30px 20px; 
                 gap: 20px; 
-                margin-top: 5px; 
                 border-radius: 20px; 
             }
             .hero-buttons { 
@@ -413,149 +407,152 @@
 </head>
 <body>
 
-    <nav class="sidebar">
-        <div class="sidebar-brand">NOMAN ZULFIQAR</div>
-        <ul class="sidebar-menu">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact Me</a></li>
-        </ul>
-    </nav>
+    <div class="app-container">
 
-    <main class="main-content">
-        
-        <section id="home" class="hero">
-            <div class="hero-info">
-                <h2>Hi, I'm</h2>
-                <h1>Noman Zulfiqar</h1>
-                <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
-                <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary">View My Work →</a>
-                    <a href="#contact" class="btn-secondary">Contact Me</a>
-                </div>
-            </div>
+        <nav class="sidebar">
+            <div class="sidebar-brand">NOMAN ZULFIQAR</div>
+            <ul class="sidebar-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
             
-            <div class="avatar-container">
-                <div class="avatar-frame">
-                    <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar Picture" onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1e293b';">
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="section-heading">About Me</div>
-            <div class="about-container">
-                <div class="about-text">
-                    Noman Zulfiqar is an undergraduate student and technology enthusiast with a passion for learning emerging technologies and earning industry-recognized certifications. Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding knowledge through learning for my future in technology.
-                </div>
-                <div class="info-card">
-                    <div class="info-item">
-                        <div class="info-details">
-                            <span class="info-label">Name</span>
-                            <span class="info-value">Noman Zulfiqar</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-details">
-                            <span class="info-label">Location</span>
-                            <span class="info-value">Karachi, Pakistan</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-details">
-                            <span class="info-label">Email</span>
-                            <span class="info-value">nomanzulfiqar121@gmail.com</span>
-                        </div>
+            <section id="home" class="hero">
+                <div class="hero-info">
+                    <h2>Hi, I'm</h2>
+                    <h1>Noman Zulfiqar</h1>
+                    <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
+                    <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn-primary">View My Work →</a>
+                        <a href="#contact" class="btn-secondary">Contact Me</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <div class="section-heading">My Skills</div>
-            <div class="skills-grid">
-                <div class="skill-pill">HTML</div>
-                <div class="skill-pill">CSS</div>
-                <div class="skill-pill">JavaScript</div>
-            </div>
-        </section>
-
-        <section id="certifications">
-            <div class="section-heading">Certifications</div>
-            <div class="grid-layout">
                 
-                <div class="portfolio-card">
-                    <div>
-                        <div class="card-org org-ms">Microsoft Applied Skills</div>
-                        <div class="card-title">Generate report with AI research agents</div>
+                <div class="avatar-container">
+                    <div class="avatar-frame">
+                        <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar Picture" onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1e293b';">
                     </div>
-                    <a href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7" target="_blank" class="card-link">View Credential ↗</a>
                 </div>
+            </section>
 
-                <div class="portfolio-card">
-                    <div>
-                        <div class="card-org org-hp">HP LIFE</div>
-                        <div class="card-title">AI Beginner Professional Certification</div>
+            <section id="about">
+                <div class="section-heading">About Me</div>
+                <div class="about-container">
+                    <div class="about-text">
+                        Noman Zulfiqar is an undergraduate student and technology enthusiast with a passion for learning emerging technologies and earning industry-recognized certifications. Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding knowledge through learning for my future in technology.
                     </div>
-                    <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
-                </div>
-
-                <div class="portfolio-card">
-                    <div>
-                        <div class="card-org org-google">Google / Accredible</div>
-                        <div class="card-title">Gemini Educator Core Credential</div>
+                    <div class="info-card">
+                        <div class="info-item">
+                            <div class="info-details">
+                                <span class="info-label">Name</span>
+                                <span class="info-value">Noman Zulfiqar</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-details">
+                                <span class="info-label">Location</span>
+                                <span class="info-value">Karachi, Pakistan</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-details">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">nomanzulfiqar121@gmail.com</span>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://edu.google.accredible.com/1dfd9796-d8bd-414f-808a-f48f3376682c#acc.yp8kj2iw" target="_blank" class="card-link">View Credential ↗</a>
                 </div>
+            </section>
 
-                <div class="portfolio-card">
-                    <div>
-                        <div class="card-org org-ms">Microsoft / MLSA</div>
-                        <div class="card-title">Microsoft Learn Student Ambassador Core Milestones</div>
+            <section id="skills">
+                <div class="section-heading">My Skills</div>
+                <div class="skills-grid">
+                    <div class="skill-pill">HTML</div>
+                    <div class="skill-pill">CSS</div>
+                    <div class="skill-pill">JavaScript</div>
+                </div>
+            </section>
+
+            <section id="certifications">
+                <div class="section-heading">Certifications</div>
+                <div class="grid-layout">
+                    
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-ms">Microsoft Applied Skills</div>
+                            <div class="card-title">Generate report with AI research agents</div>
+                        </div>
+                        <a href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7" target="_blank" class="card-link">View Credential ↗</a>
                     </div>
-                    <a href="#" class="card-link" style="color: var(--text-light); pointer-events: none;">Verified Profile Card</a>
+
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-hp">HP LIFE</div>
+                            <div class="card-title">AI Beginner Professional Certification</div>
+                        </div>
+                        <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-google">Google / Accredible</div>
+                            <div class="card-title">Gemini Educator Core Credential</div>
+                        </div>
+                        <a href="https://edu.google.accredible.com/1dfd9796-d8bd-414f-808a-f48f3376682c#acc.yp8kj2iw" target="_blank" class="card-link">View Credential ↗</a>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <div>
+                            <div class="card-org org-ms">Microsoft / MLSA</div>
+                            <div class="card-title">Microsoft Learn Student Ambassador Core Milestones</div>
+                        </div>
+                        <a href="#" class="card-link" style="color: var(--text-light); pointer-events: none;">Verified Profile Card</a>
+                    </div>
+
                 </div>
+            </section>
 
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="section-heading">Projects</div>
-            <div class="project-card">
-                <div>
-                    <div class="card-org org-ms">Microsoft Learn Student Ambassador Tool</div>
-                    <div class="card-title" style="font-size: 1.4rem; margin-top: 5px;">MLSA Link Converter</div>
-                    <p style="color: var(--text-light); margin-top: 10px; line-height: 1.5; font-size: 0.95rem;">
-                        An official automated web utility created to format, manage, and convert custom resource pathways effortlessly.
-                    </p>
+            <section id="projects">
+                <div class="section-heading">Projects</div>
+                <div class="project-card">
+                    <div>
+                        <div class="card-org org-ms">Microsoft Learn Student Ambassador Tool</div>
+                        <div class="card-title" style="font-size: 1.4rem; margin-top: 5px;">MLSA Link Converter</div>
+                        <p style="color: var(--text-light); margin-top: 10px; line-height: 1.5; font-size: 0.95rem;">
+                            An official automated web utility created to format, manage, and convert custom resource pathways effortlessly.
+                        </p>
+                    </div>
+                    <a href="https://nomanzulfiqar121-ctrl.github.io/mlsa-link-converter/" target="_blank" class="btn-primary" style="align-self: flex-start; margin-top: 5px;">Launch Live Tool ↗</a>
                 </div>
-                <a href="https://nomanzulfiqar121-ctrl.github.io/mlsa-link-converter/" target="_blank" class="btn-primary" style="align-self: flex-start; margin-top: 5px;">Launch Live Tool ↗</a>
-            </div>
-        </section>
+            </section>
 
-        <section id="contact">
-            <div class="section-heading">Contact Me</div>
-            <div class="contact-row">
-                <a href="mailto:nomanzulfiqar121@gmail.com" class="contact-item">
-                    <span style="color: var(--primary-blue); font-size: 0.75rem; text-transform: uppercase;">Email</span>
-                    <span style="font-size: 1rem;">nomanzulfiqar121@gmail.com</span>
-                </a>
-                <a href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4" target="_blank" class="contact-item">
-                    <span style="color: #0077b5; font-size: 0.75rem; text-transform: uppercase;">LinkedIn</span>
-                    <span style="font-size: 1rem;">Connect Professionally ↗</span>
-                </a>
-                <a href="https://github.com/nomanzulfiqar121-ctrl" target="_blank" class="contact-item">
-                    <span style="color: #24292e; font-size: 0.75rem; text-transform: uppercase;">GitHub</span>
-                    <span style="font-size: 1rem;">View Repositories ↗</span>
-                </a>
-            </div>
-        </section>
+            <section id="contact">
+                <div class="section-heading">Contact Me</div>
+                <div class="contact-row">
+                    <a href="mailto:nomanzulfiqar121@gmail.com" class="contact-item">
+                        <span style="color: var(--primary-blue); font-size: 0.75rem; text-transform: uppercase;">Email</span>
+                        <span style="font-size: 1rem;">nomanzulfiqar121@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/noman-zulfiqar-0916833a4" target="_blank" class="contact-item">
+                        <span style="color: #0077b5; font-size: 0.75rem; text-transform: uppercase;">LinkedIn</span>
+                        <span style="font-size: 1rem;">Connect Professionally ↗</span>
+                    </a>
+                    <a href="https://github.com/nomanzulfiqar121-ctrl" target="_blank" class="contact-item">
+                        <span style="color: #24292e; font-size: 0.75rem; text-transform: uppercase;">GitHub</span>
+                        <span style="font-size: 1rem;">View Repositories ↗</span>
+                    </a>
+                </div>
+            </section>
 
-    </main>
+        </main>
+    </div>
 
     <script>
         const sections = document.querySelectorAll('section');
