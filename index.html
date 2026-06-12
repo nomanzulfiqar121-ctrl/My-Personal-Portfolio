@@ -274,7 +274,7 @@
         .skill-pill {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 24px 20px; /* Vertically slightly balanced */
+            padding: 24px 20px; 
             border-radius: 14px;
             font-weight: 600;
             color: #334155;
@@ -282,10 +282,10 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
             transition: transform 0.2s;
             display: flex;
-            flex-direction: column; /* Icon Top, Text Bottom layout */
+            flex-direction: column; 
             align-items: center;
             justify-content: center;
-            gap: 12px; /* Space between logo and text */
+            gap: 12px; 
         }
         
         .skill-pill:hover {
@@ -293,26 +293,17 @@
             border-color: #cbd5e1;
         }
 
-        /* Target logos inside skill pills for custom scaling and brand sizing */
         .skill-pill i {
             font-size: 2.5rem; 
             transition: transform 0.2s;
         }
 
         /* Specific Brand Color Systems */
-        .fa-html5 {
-            color: #e34c26;
-        }
+        .fa-html5 { color: #e34c26; }
+        .fa-css3-alt { color: #264de4; }
+        .fa-js { color: #f7df1e; }
 
-        .fa-css3-alt {
-            color: #264de4;
-        }
-
-        .fa-js {
-            color: #f7df1e;
-        }
-
-        /* ── CERTIFICATIONS SLIDER ── */
+        /* ── CERTIFICATIONS SLIDER FIXED (PREMIUM OVERLAP ARROW) ── */
         .slider-wrapper {
             position: relative;
             display: flex;
@@ -351,6 +342,7 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
+        /* FIXED: Slider Arrow now overlaps beautifully on the right edge */
         .slider-arrow {
             width: 44px;
             height: 44px;
@@ -360,19 +352,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             color: var(--primary-blue);
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            margin-left: 15px;
-            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
             transition: all 0.2s;
+            position: absolute;
+            right: -15px;
+            z-index: 10;
         }
 
         .slider-arrow:hover {
             background-color: var(--primary-blue);
             color: #ffffff;
+            transform: scale(1.05);
         }
 
         /* Projects Layout */
@@ -388,12 +382,42 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
-        /* Contact Section Grid */
+        /* ── CONTACT GRID FIXED (3 Columns, Clean Widths) ── */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             width: 100%;
+        }
+
+        /* NEW 독립된 CONTACT CARD STYLING FOR CLICKABLE LINK EFFECT */
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* Center Content */
+            text-align: center;
+            min-height: 130px;
+            text-decoration: none; /* Removes underline */
+            color: inherit;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.05);
+        }
+
+        .contact-card i {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
         }
 
         /* Responsive Mobile Layout Engine */
@@ -573,20 +597,4 @@
                         <div class="card-org org-mlsa">Microsoft Learn Student Ambassador Tool</div>
                         <h3 class="card-title" style="margin-top: 4px; font-size: 1.2rem;">MLSA Link Converter</h3>
                     </div>
-                    <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.5;">An official automated web utility created to format, manage, and convert custom resource pathways effortlessly for the global community.</p>
-                    <div style="margin-top: 10px;">
-                        <a href="#" class="btn-primary" style="padding: 8px 20px; font-size: 0.85rem;">Launch Live Tool ↗</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <div class="section-heading">Contact Me</div>
-                <div class="contact-grid">
-                    <div class="portfolio-card" style="min-height: 120px;">
-                        <div>
-                            <div class="info-label">Email</div>
-                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">nomanzulfiqar121@gmail.com</div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" style="
+                    <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.5;">An officia
