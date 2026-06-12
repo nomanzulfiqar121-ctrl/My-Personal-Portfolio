@@ -37,7 +37,6 @@
             align-items: flex-start;
         }
 
-        /* FIXED: Removed the desktop sidebar container completely to free up all space */
         .sidebar {
             display: none;
         }
@@ -45,26 +44,65 @@
         /* ── MAIN CONTENT LAYER ── */
         .main-content {
             flex: 1;
-            padding: 40px; /* FIXED: Perfect uniform padding on all sides, zero invisible walls */
+            padding: 40px; 
             background-color: var(--main-bg);
             overflow-x: hidden;
         }
 
-        /* ── HERO SECTION ── */
+        /* ── HERO SECTION (WITH INTEGRATED NAV) ── */
         .hero {
+            display: flex;
+            flex-direction: column; /* Stack navbar on top, content below */
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 30px 50px 50px 50px; /* Top padding thoda kam kiya nav ke liye */
+            margin-top: 0px;
+            margin-left: 0px; 
+            margin-bottom: 45px;
+            border-radius: 24px; 
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+            min-height: 440px;
+            gap: 30px;
+        }
+
+        /* NEW INTEGRATED NAVBAR STYLING */
+        .hero-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Light premium separator line */
+        }
+
+        .hero-nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .hero-nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .hero-nav-links a:hover {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.06);
+        }
+
+        /* Wrap remaining text and avatar in a row */
+        .hero-body {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 40px;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            padding: 50px 50px;
-            margin-top: 0px;
-            margin-left: 0px; /* FIXED: No more negative margins needed */
-            margin-bottom: 45px;
-            border-radius: 24px; /* Clean rounded edges since it fills the space perfectly */
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-            min-height: 440px;
+            width: 100%;
         }
 
         .hero-info {
@@ -155,7 +193,7 @@
         /* ── ROW-WISE FULL SPACE ENGINE FOR SUB-SECTIONS ── */
         section:not(.hero) {
             max-width: 100%; 
-            margin-left: 0px; /* FIXED: Always zero margin to fulfill the left empty space completely */
+            margin-left: 0px; 
             margin-right: 0px;
             margin-bottom: 55px;
             scroll-margin-top: 40px;
@@ -173,7 +211,7 @@
             gap: 10px;
         }
 
-        /* About Component Cards (Broad Layout) */
+        /* About Component Cards */
         .about-container {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
@@ -224,7 +262,7 @@
             margin-top: 3px;
         }
 
-        /* Skills Broad Layout Engine (Horizontal Row representation) */
+        /* Skills Layout */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
@@ -249,7 +287,7 @@
             border-color: #cbd5e1;
         }
 
-        /* ── CERTIFICATIONS HORIZONTAL SLIDER ENGINE (A B C D...) ── */
+        /* ── CERTIFICATIONS SLIDER ── */
         .slider-wrapper {
             position: relative;
             display: flex;
@@ -266,7 +304,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Hides standard layout scrollbar for premium touch */
         .grid-layout::-webkit-scrollbar {
             display: none;
         }
@@ -289,7 +326,6 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
-        /* Next Arrow Indicator Control (>) */
         .slider-arrow {
             width: 44px;
             height: 44px;
@@ -314,7 +350,7 @@
             color: #ffffff;
         }
 
-        /* Projects Layout Engine (Fully Broadened) */
+        /* Projects Layout */
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -327,7 +363,7 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
-        /* Contact Section Grid (Balanced 3 Columns Row Layout) */
+        /* Contact Section Grid */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -341,12 +377,24 @@
                 padding: 15px; 
             }
             .hero { 
-                flex-direction: column-reverse; 
-                text-align: center; 
-                padding: 30px 20px; 
-                gap: 20px; 
+                padding: 20px 15px 30px 15px; 
+                gap: 25px; 
                 border-radius: 20px; 
                 min-height: auto;
+            }
+            .hero-nav-links {
+                gap: 10px;
+                flex-wrap: wrap; /* Wraps links on tiny mobile screens */
+                justify-content: center;
+            }
+            .hero-nav-links a {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+            .hero-body {
+                flex-direction: column-reverse; 
+                text-align: center; 
+                gap: 20px;
             }
             .hero-buttons { 
                 justify-content: center; 
@@ -378,20 +426,33 @@
         <main class="main-content">
             
             <section id="home" class="hero">
-                <div class="hero-info">
-                    <h2>Hi, I'm</h2>
-                    <h1>Noman Zulfiqar</h1>
-                    <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
-                    <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn-primary">View My Work →</a>
-                        <a href="#contact" class="btn-secondary">Contact Me</a>
+                <nav class="hero-nav">
+                    <ul class="hero-nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact Me</a></li>
+                    </ul>
+                </nav>
+
+                <div class="hero-body">
+                    <div class="hero-info">
+                        <h2>Hi, I'm</h2>
+                        <h1>Noman Zulfiqar</h1>
+                        <div class="subtitle">Microsoft Learn Student Ambassador | Lifelong Learner</div>
+                        <p>Dedicated to continuous growth, I enjoy exploring new digital skills, staying updated with the latest tech trends, and expanding my knowledge through hands-on learning and professional development.</p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn-primary">View My Work →</a>
+                            <a href="#contact" class="btn-secondary">Contact Me</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="avatar-container">
-                    <div class="avatar-frame">
-                        <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar Picture" onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1e293b';">
+                    
+                    <div class="avatar-container">
+                        <div class="avatar-frame">
+                            <img src="IMG_20260208_212120.jpg" alt="Noman Zulfiqar Picture" onerror="this.style.display='none'; this.parentNode.style.backgroundColor='#1e293b';">
+                        </div>
                     </div>
                 </div>
             </section>
