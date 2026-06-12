@@ -99,7 +99,7 @@
             flex: 1;
             padding: 0px 40px 40px 0px; 
             background-color: var(--main-bg);
-            overflow-hidden: hidden;
+            overflow-x: hidden;
         }
 
         /* ── HERO SECTION: LOCKED AND UNTOUCHED ── */
@@ -207,10 +207,10 @@
             object-fit: cover;
         }
 
-        /* ── NEW ROW-WISE AUTO BALANCED ENGINE FOR SUB-SECTIONS ── */
+        /* ── ROW-WISE FULL SPACE ENGINE FOR SUB-SECTIONS ── */
         section:not(.hero) {
-            max-width: 100%; /* Phel kar left ki empty space khatam karega */
-            margin-left: 40px; /* Hero alignment ke sath smooth padding link */
+            max-width: 100%; /* Fully broadens the sections */
+            margin-left: 40px; /* Aligns perfectly with the grid of main content start */
             margin-right: 0px;
             margin-bottom: 55px;
             scroll-margin-top: 40px;
@@ -228,7 +228,7 @@
             gap: 10px;
         }
 
-        /* About Component Cards (Broad Row Layout) */
+        /* About Component Cards (Broad Layout) */
         .about-container {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
@@ -279,10 +279,10 @@
             margin-top: 3px;
         }
 
-        /* Skills Broad Layout Engine (Row-wise representation like Figma) */
+        /* Skills Broad Layout Engine (Horizontal Row representation) */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Automates broad horizontal distribution */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
             gap: 20px;
             width: 100%;
         }
@@ -304,12 +304,30 @@
             border-color: #cbd5e1;
         }
 
-        /* Grid Engine for Certifications (Full Horizontal Utilization) */
+        /* ── NEW CERTIFICATIONS HORIZONTAL SLIDER ENGINE (A B C D...) ── */
+        .slider-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
         .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex; /* Switched from grid to horizontal flex row */
+            overflow-x: auto; /* Enables sliding horizontally */
             gap: 24px;
             width: 100%;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+        }
+
+        /* Hides standard layout scrollbar for premium touch */
+        .grid-layout::-webkit-scrollbar {
+            display: none;
+        }
+        .grid-layout {
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
         }
 
         .portfolio-card {
@@ -321,39 +339,37 @@
             flex-direction: column;
             justify-content: space-between;
             min-height: 180px;
+            min-width: 320px; /* Locks cards width so they stack horizontally as A B C D */
+            flex-shrink: 0; /* Keeps them from breaking/shrinking inside row */
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
-        .card-org {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-        
-        .org-ms { color: #f25f22; }
-        .org-hp { color: #0096d6; }
-        .org-google { color: #ea4335; }
-        .org-mlsa { color: #00a4ef; }
-
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            line-height: 1.4;
-        }
-
-        .card-link {
+        /* Next Arrow Indicator Control (>) */
+        .slider-arrow {
+            width: 44px;
+            height: 44px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
             color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.88rem;
-            padding-top: 15px;
-            display: inline-block;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            margin-left: 15px;
+            flex-shrink: 0;
+            transition: all 0.2s;
         }
 
-        /* Projects Layout Engine (Fully Broadened to Match Canvas) */
+        .slider-arrow:hover {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+        }
+
+        /* Projects Layout Engine (Fully Broadened) */
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -414,13 +430,19 @@
                 grid-template-columns: 1fr; 
             }
             .grid-layout { 
-                grid-template-columns: 1fr; 
+                gap: 16px;
+            }
+            .portfolio-card {
+                min-width: 260px;
             }
             .contact-grid {
                 grid-template-columns: 1fr;
             }
             section:not(.hero) {
                 margin-left: 0px; 
+            }
+            .slider-arrow {
+                display: none; /* Auto hides slide button on mobile for clean touch gestures */
             }
         }
     </style>
@@ -502,35 +524,38 @@
 
             <section id="certifications">
                 <div class="section-heading">Certifications</div>
-                <div class="grid-layout">
-                    <div class="portfolio-card">
-                        <div>
-                            <div class="card-org org-ms">Microsoft Applied Skills</div>
-                            <div class="card-title">Generate report with AI research agents</div>
+                <div class="slider-wrapper">
+                    <div class="grid-layout" id="certSlider">
+                        <div class="portfolio-card">
+                            <div>
+                                <div class="card-org org-ms">Microsoft Applied Skills</div>
+                                <div class="card-title">Generate report with AI research agents</div>
+                            </div>
+                            <a href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7" target="_blank" class="card-link">View Credential ↗</a>
                         </div>
-                        <a href="https://learn.microsoft.com/api/credentials/share/en-gb/NomanZulfiqar-5726/89787BA4248ADD1B?sharingId=2A1403B4928B13B7" target="_blank" class="card-link">View Credential ↗</a>
-                    </div>
-                    <div class="portfolio-card">
-                        <div>
-                            <div class="card-org org-hp">HP LIFE</div>
-                            <div class="card-title">AI Beginner Professional Certification</div>
+                        <div class="portfolio-card">
+                            <div>
+                                <div class="card-org org-hp">HP LIFE</div>
+                                <div class="card-title">AI Beginner Professional Certification</div>
+                            </div>
+                            <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
                         </div>
-                        <a href="https://www.life-global.org/certificate/d41c54dc-fbd8-47ba-a009-bd7a3aebbe1c" target="_blank" class="card-link">View Credential ↗</a>
-                    </div>
-                    <div class="portfolio-card">
-                        <div>
-                            <div class="card-org org-google">Google / Accredible</div>
-                            <div class="card-title">Gemini Educator Core Credential</div>
+                        <div class="portfolio-card">
+                            <div>
+                                <div class="card-org org-google">Google / Accredible</div>
+                                <div class="card-title">Gemini Educator Core Credential</div>
+                            </div>
+                            <a href="#" class="card-link">View Credential ↗</a>
                         </div>
-                        <a href="#" class="card-link">View Credential ↗</a>
-                    </div>
-                    <div class="portfolio-card">
-                        <div>
-                            <div class="card-org org-mlsa">Microsoft / MLSA</div>
-                            <div class="card-title">Microsoft Learn Student Ambassador Core Milestones</div>
+                        <div class="portfolio-card">
+                            <div>
+                                <div class="card-org org-mlsa">Microsoft / MLSA</div>
+                                <div class="card-title">Microsoft Learn Student Ambassador Core Milestones</div>
+                            </div>
+                            <a href="#" class="card-link">Verified Profile Card ↗</a>
                         </div>
-                        <a href="#" class="card-link">Verified Profile Card ↗</a>
                     </div>
+                    <div class="slider-arrow" onclick="document.getElementById('certSlider').scrollBy({left: 340, behavior: 'smooth'});">➔</div>
                 </div>
             </section>
 
@@ -552,27 +577,4 @@
                 <div class="section-heading">Contact Me</div>
                 <div class="contact-grid">
                     <div class="portfolio-card" style="min-height: 120px;">
-                        <div>
-                            <div class="info-label">Email</div>
-                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">nomanzulfiqar121@gmail.com</div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" style="min-height: 120px;">
-                        <div>
-                            <div class="info-label">LinkedIn</div>
-                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">Connect Professionally →</div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" style="min-height: 120px;">
-                        <div>
-                            <div class="info-label">GitHub</div>
-                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">View Repositories →</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-    </div>
-</body>
-</html>
+                       
