@@ -39,12 +39,12 @@
 
         /* ── SIDEBAR WITH ZERO EXTRA SPACE NEXT TO TEXT ── */
         .sidebar {
-            width: max-content; /* Width is tightly locked to text size, no extra right gap */
+            width: max-content; 
             background-color: var(--sidebar-bg);
             color: #ffffff;
             display: flex;
             flex-direction: column;
-            padding: 30px 20px 30px 15px; /* Perfect tight internal padding */
+            padding: 30px 20px 30px 15px; 
             flex-shrink: 0;
             min-height: 440px;
         }
@@ -82,10 +82,10 @@
             font-size: 0.95rem;
             display: flex;
             align-items: center;
-            padding: 12px 15px 12px 10px; /* Snug styling padding to kill inner space */
+            padding: 12px 15px 12px 10px; 
             border-radius: 8px;
             transition: all 0.3s ease;
-            white-space: nowrap; /* Prevents menu links from breaking into multiple lines */
+            white-space: nowrap; 
         }
 
         .sidebar-menu a:hover, .sidebar-menu a.active {
@@ -94,14 +94,15 @@
             font-weight: 600;
         }
 
-        /* ── MAIN CONTENT LAYER (ZERO GAP FOR ATTACHMENT) ── */
+        /* ── MAIN CONTENT LAYER ── */
         .main-content {
             flex: 1;
-            padding: 0px 40px 40px 0px; /* Left padding is 0 so Hero section attaches directly to sidebar */
+            padding: 0px 40px 40px 0px; 
             background-color: var(--main-bg);
+            overflow-hidden: hidden;
         }
 
-        /* ── HERO SECTION: ATTACHED DIRECTLY TO SIDEBAR ── */
+        /* ── HERO SECTION: LOCKED AND UNTOUCHED ── */
         .hero {
             display: flex;
             align-items: center;
@@ -111,7 +112,7 @@
             color: white;
             padding: 50px 50px;
             margin-top: 0px;
-            margin-left: 0px; /* Zero gap connection */
+            margin-left: 0px; 
             margin-bottom: 45px;
             border-top-left-radius: 0px; 
             border-bottom-left-radius: 0px;
@@ -206,30 +207,33 @@
             object-fit: cover;
         }
 
-        /* ── INTERNAL SUB-SECTIONS (PERFECTLY CENTERED, EXTRA LEFT SPACE REMOVED) ── */
+        /* ── NEW ROW-WISE AUTO BALANCED ENGINE FOR SUB-SECTIONS ── */
         section:not(.hero) {
-            max-width: 1000px; /* Balances the layout size */
-            margin-left: auto; /* Centers horizontally */
-            margin-right: auto; /* Centers horizontally */
-            margin-bottom: 60px;
-            padding-left: 40px; /* Balances the 40px right padding on main-content for perfect visual center */
+            max-width: 100%; /* Phel kar left ki empty space khatam karega */
+            margin-left: 40px; /* Hero alignment ke sath smooth padding link */
+            margin-right: 0px;
+            margin-bottom: 55px;
             scroll-margin-top: 40px;
         }
 
         .section-heading {
-            font-size: 1.45rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             color: var(--text-dark);
             position: relative;
             padding-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* About Component Cards */
+        /* About Component Cards (Broad Row Layout) */
         .about-container {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
             gap: 24px;
+            width: 100%;
         }
 
         .about-text {
@@ -237,10 +241,12 @@
             padding: 30px; 
             border-radius: 14px;
             border: 1px solid var(--border-color);
-            font-size: 1.05rem; 
+            font-size: 1.02rem; 
             color: #334155;
+            line-height: 1.6;
             display: flex;
             align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
         .info-card {
@@ -250,7 +256,8 @@
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
         .info-details {
@@ -263,53 +270,66 @@
             color: var(--text-light);
             text-transform: uppercase;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .info-value {
             font-weight: 600;
             color: var(--text-dark);
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
-        /* Skills Pill Engine */
+        /* Skills Broad Layout Engine (Row-wise representation like Figma) */
         .skills-grid {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Automates broad horizontal distribution */
+            gap: 20px;
+            width: 100%;
         }
 
         .skill-pill {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 12px 28px;
-            border-radius: 12px;
+            padding: 18px 20px;
+            border-radius: 14px;
             font-weight: 600;
             color: #334155;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+        
+        .skill-pill:hover {
+            transform: translateY(-2px);
+            border-color: #cbd5e1;
         }
 
-        /* Grid Engine for Certifications */
+        /* Grid Engine for Certifications (Full Horizontal Utilization) */
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 24px;
+            width: 100%;
         }
 
         .portfolio-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 14px;
-            padding: 24px;
+            padding: 26px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 180px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
         .card-org {
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
         
         .org-ms { color: #f25f22; }
@@ -318,40 +338,43 @@
         .org-mlsa { color: #00a4ef; }
 
         .card-title {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-dark);
+            line-height: 1.4;
         }
 
         .card-link {
             color: var(--primary-blue);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             padding-top: 15px;
             display: inline-block;
         }
 
-        /* Projects Section styling */
+        /* Projects Layout Engine (Fully Broadened to Match Canvas) */
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 30px;
+            padding: 35px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            width: 100%; /* Allows project card to match grid width perfectly */
+            gap: 15px;
+            width: 100%; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
-        /* Contact Section Grid */
+        /* Contact Section Grid (Balanced 3 Columns Row Layout) */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 24px;
+            width: 100%;
         }
 
-        /* Responsive Layout Engine */
+        /* Responsive Mobile Layout Engine */
         @media (max-width: 900px) {
             .app-container {
                 flex-direction: column;
@@ -398,7 +421,6 @@
             }
             section:not(.hero) {
                 margin-left: 0px; 
-                padding-left: 0px; /* Resets desktop padding adjustment on mobile */
             }
         }
     </style>
