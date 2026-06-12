@@ -37,72 +37,20 @@
             align-items: flex-start;
         }
 
-        /* ── SIDEBAR WITH ZERO EXTRA SPACE NEXT TO TEXT ── */
+        /* FIXED: Removed the desktop sidebar container completely to free up all space */
         .sidebar {
-            width: max-content; 
-            background-color: var(--sidebar-bg);
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            padding: 30px 20px 30px 15px; 
-            flex-shrink: 0;
-            min-height: 440px;
-        }
-
-        /* Figma Style Short Logo 'NZ' */
-        .sidebar-brand-box {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-            margin-bottom: 35px;
-            margin-left: 10px;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            width: 100%;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 6px;
-        }
-
-        .sidebar-menu a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            padding: 12px 15px 12px 10px; 
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            white-space: nowrap; 
-        }
-
-        .sidebar-menu a:hover, .sidebar-menu a.active {
-            color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.08);
-            font-weight: 600;
+            display: none;
         }
 
         /* ── MAIN CONTENT LAYER ── */
         .main-content {
             flex: 1;
-            padding: 0px 40px 40px 40px; /* FIXED: Balanced padding to allow flush alignment on both sides */
+            padding: 40px; /* FIXED: Perfect uniform padding on all sides, zero invisible walls */
             background-color: var(--main-bg);
             overflow-x: hidden;
         }
 
-        /* ── HERO SECTION: LOCKED AND UNTOUCHED ── */
+        /* ── HERO SECTION ── */
         .hero {
             display: flex;
             align-items: center;
@@ -112,12 +60,9 @@
             color: white;
             padding: 50px 50px;
             margin-top: 0px;
-            margin-left: -40px; /* FIXED: Pulls Hero back flush to the sidebar border over main-content padding */
+            margin-left: 0px; /* FIXED: No more negative margins needed */
             margin-bottom: 45px;
-            border-top-left-radius: 0px; 
-            border-bottom-left-radius: 0px;
-            border-top-right-radius: 0px;
-            border-bottom-right-radius: 24px;
+            border-radius: 24px; /* Clean rounded edges since it fills the space perfectly */
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
             min-height: 440px;
         }
@@ -210,7 +155,7 @@
         /* ── ROW-WISE FULL SPACE ENGINE FOR SUB-SECTIONS ── */
         section:not(.hero) {
             max-width: 100%; 
-            margin-left: 0px; /* FIXED: Removed the 40px blocking margin to kill the empty space */
+            margin-left: 0px; /* FIXED: Always zero margin to fulfill the left empty space completely */
             margin-right: 0px;
             margin-bottom: 55px;
             scroll-margin-top: 40px;
@@ -392,26 +337,6 @@
 
         /* Responsive Mobile Layout Engine */
         @media (max-width: 900px) {
-            .app-container {
-                flex-direction: column;
-            }
-            .sidebar { 
-                width: 100% !important; 
-                padding: 20px; 
-                min-height: auto;
-            }
-            .sidebar-brand-box { 
-                margin: 0 auto 15px auto; 
-            }
-            .sidebar-menu { 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-                gap: 8px; 
-            }
-            .sidebar-menu li { 
-                margin-bottom: 0; 
-            }
             .main-content { 
                 padding: 15px; 
             }
@@ -422,7 +347,6 @@
                 gap: 20px; 
                 border-radius: 20px; 
                 min-height: auto;
-                margin-left: 0px;
             }
             .hero-buttons { 
                 justify-content: center; 
@@ -439,9 +363,6 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-            section:not(.hero) {
-                margin-left: 0px; 
-            }
             .slider-arrow {
                 display: none; 
             }
@@ -452,17 +373,7 @@
 
     <div class="app-container">
 
-        <nav class="sidebar">
-            <div class="sidebar-brand-box">NZ</div>
-            <ul class="sidebar-menu">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact Me</a></li>
-            </ul>
-        </nav>
+        <nav class="sidebar"></nav>
 
         <main class="main-content">
             
@@ -580,4 +491,25 @@
                     <div class="portfolio-card" style="min-height: 120px;">
                         <div>
                             <div class="info-label">Email</div>
-                          
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">nomanzulfiqar121@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" style="min-height: 120px;">
+                        <div>
+                            <div class="info-label">LinkedIn</div>
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">Connect Professionally →</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" style="min-height: 120px;">
+                        <div>
+                            <div class="info-label">GitHub</div>
+                            <div class="info-value" style="font-size: 0.95rem; margin-top: 5px;">View Repositories →</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
