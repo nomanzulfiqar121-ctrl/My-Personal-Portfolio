@@ -274,7 +274,7 @@
         .skill-pill {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 24px 20px; 
+            padding: 24px 20px; /* Vertically slightly balanced */
             border-radius: 14px;
             font-weight: 600;
             color: #334155;
@@ -282,10 +282,10 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
             transition: transform 0.2s;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column; /* Icon Top, Text Bottom layout */
             align-items: center;
             justify-content: center;
-            gap: 12px; 
+            gap: 12px; /* Space between logo and text */
         }
         
         .skill-pill:hover {
@@ -293,6 +293,7 @@
             border-color: #cbd5e1;
         }
 
+        /* Target logos inside skill pills for custom scaling and brand sizing */
         .skill-pill i {
             font-size: 2.5rem; 
             transition: transform 0.2s;
@@ -350,7 +351,7 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
-        /* Slider Arrow Position Optimized Globally */
+        /* Slider Arrow Styling Reapplied Safe for Global View */
         .slider-arrow {
             width: 44px;
             height: 44px;
@@ -365,10 +366,10 @@
             color: var(--primary-blue);
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: all 0.2s;
             position: absolute;
             right: -15px;
             z-index: 10;
+            transition: all 0.2s;
         }
 
         .slider-arrow:hover {
@@ -397,29 +398,28 @@
             width: 100%;
         }
 
-        /* Contact Section Card Inside Elements Realignment Only */
-        .contact-box {
+        /* Contact Section Custom Sub-Alignment Rules Without Ruining Anything */
+        .contact-box-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            gap: 6px;
             width: 100%;
+            gap: 4px;
         }
 
-        .contact-box i {
+        .contact-box-content i {
             font-size: 1.8rem;
             color: var(--primary-blue);
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
 
-        .contact-box a {
+        .contact-box-content a {
             color: var(--primary-blue);
             text-decoration: underline;
             font-size: 0.95rem;
-            margin-top: 3px;
-            word-break: break-all;
+            margin-top: 2px;
         }
 
         /* Responsive Mobile Layout Engine */
@@ -600,8 +600,4 @@
                         <h3 class="card-title" style="margin-top: 4px; font-size: 1.2rem;">MLSA Link Converter</h3>
                     </div>
                     <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.5;">An official automated web utility created to format, manage, and convert custom resource pathways effortlessly for the global community.</p>
-                    <div style="margin-top: 10px;">
-                        <a href="#" class="btn-primary" style="padding: 8px 20px; font-size: 0.85rem;">Launch Live Tool ↗</a>
-                    </div>
-                </div>
-            </sec
+                    <div style="margin-top: 10px
