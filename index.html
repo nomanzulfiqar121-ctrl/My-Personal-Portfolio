@@ -97,7 +97,7 @@
         /* ── MAIN CONTENT LAYER ── */
         .main-content {
             flex: 1;
-            padding: 0px 40px 40px 0px; 
+            padding: 0px 40px 40px 40px; /* FIXED: Balanced padding to allow flush alignment on both sides */
             background-color: var(--main-bg);
             overflow-x: hidden;
         }
@@ -112,7 +112,7 @@
             color: white;
             padding: 50px 50px;
             margin-top: 0px;
-            margin-left: 0px; 
+            margin-left: -40px; /* FIXED: Pulls Hero back flush to the sidebar border over main-content padding */
             margin-bottom: 45px;
             border-top-left-radius: 0px; 
             border-bottom-left-radius: 0px;
@@ -209,8 +209,8 @@
 
         /* ── ROW-WISE FULL SPACE ENGINE FOR SUB-SECTIONS ── */
         section:not(.hero) {
-            max-width: 100%; /* Fully broadens the sections */
-            margin-left: 40px; /* Aligns perfectly with the grid of main content start */
+            max-width: 100%; 
+            margin-left: 0px; /* FIXED: Removed the 40px blocking margin to kill the empty space */
             margin-right: 0px;
             margin-bottom: 55px;
             scroll-margin-top: 40px;
@@ -304,7 +304,7 @@
             border-color: #cbd5e1;
         }
 
-        /* ── NEW CERTIFICATIONS HORIZONTAL SLIDER ENGINE (A B C D...) ── */
+        /* ── CERTIFICATIONS HORIZONTAL SLIDER ENGINE (A B C D...) ── */
         .slider-wrapper {
             position: relative;
             display: flex;
@@ -313,8 +313,8 @@
         }
 
         .grid-layout {
-            display: flex; /* Switched from grid to horizontal flex row */
-            overflow-x: auto; /* Enables sliding horizontally */
+            display: flex; 
+            overflow-x: auto; 
             gap: 24px;
             width: 100%;
             padding-bottom: 10px;
@@ -339,8 +339,8 @@
             flex-direction: column;
             justify-content: space-between;
             min-height: 180px;
-            min-width: 320px; /* Locks cards width so they stack horizontally as A B C D */
-            flex-shrink: 0; /* Keeps them from breaking/shrinking inside row */
+            min-width: 320px; 
+            flex-shrink: 0; 
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
         }
 
@@ -422,6 +422,7 @@
                 gap: 20px; 
                 border-radius: 20px; 
                 min-height: auto;
+                margin-left: 0px;
             }
             .hero-buttons { 
                 justify-content: center; 
@@ -442,7 +443,7 @@
                 margin-left: 0px; 
             }
             .slider-arrow {
-                display: none; /* Auto hides slide button on mobile for clean touch gestures */
+                display: none; 
             }
         }
     </style>
@@ -577,4 +578,6 @@
                 <div class="section-heading">Contact Me</div>
                 <div class="contact-grid">
                     <div class="portfolio-card" style="min-height: 120px;">
-                       
+                        <div>
+                            <div class="info-label">Email</div>
+                          
